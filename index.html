@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <script src="script.js"></script>
+    <form>
+      <div class="basic-info">
+        <p>Name: <input type="text" name="Name" size= "15" required><br></p>
+        <p>Team #: <input type="text" name="Team#" size= "14" required><br></p>
+        <p>Match #: <input type="text" name="Match#" size= "13" required><br></p>
+        <p>Alliance Station:     
+        <select name="Alliance-station" required>
+          <option value="Red1">Red 1</option>
+          <option value="Red2">Red 2</option>
+          <option value="Red3">Red 3</option>
+          <option value="Blue1">Blue 1</option>
+          <option value="Blue2">Blue 2</option>
+          <option value="Blue3">Blue 3</option>
+        </select>
+        </p>
+        <p>Absent: 
+          <button id="absent-yes" type="button">Yes</button>
+          <button id="absent-no" type="button">No</button> 
+        </p>
+      </div>
+      <p>Robot Start Position:</p>
+      <div class="start-position-slider">
+        <p id="sp-sector">Sector</p>
+        <input type="range" min="1" max="100" value="50" class="slider" id="start-slider">
+        <p id="sp-generator">Shield <br> Generator</p>
+      </div>
+      <div class="start-countdown">
+        <button id="start-button" type="button">Start</button>
+      </div>
+    </form>
+  </body>
+</html>
