@@ -9,6 +9,7 @@
   <body>
     <script src="script.js"></script>
     <form>
+      <!--basic information beofre the match begins-->
       <div class="basic-info">
         <p>Name: <input type="text" name="Name" size= "15" required><br></p>
         <p>Team #: <input type="text" name="Team#" size= "14" required><br></p>
@@ -28,14 +29,20 @@
           <button id="absent-no" type="button">No</button> 
         </p>
       </div>
+      <!--slider represents initiation line and the robot position on the line-->
+      <div id="before-slider">
       <p>Robot Start Position:</p>
+      <!--when the flip button is clicked, the sector and shield generator switch positions-->
+      <button id="flip-button" type="button" onclick="flip()">Flip</button>
+      </div>
       <div class="start-position-slider">
         <p id="sp-sector">Sector</p>
         <input type="range" min="1" max="100" value="50" class="slider" id="start-slider">
-        <p id="sp-generator">Shield <br> Generator</p>
+        <p id="sp-generator">Shield Generator</p>
       </div>
+      <!--starts a countdown from 2:30 and is used to mark timestamps for certain data points-->
       <div class="start-countdown">
-        <button id="start-button" type="button">Start</button>
+        <button id="start-button" type="button" onclick="toAutoPage()">Start</button>
       </div>
     </form>
   </body>
