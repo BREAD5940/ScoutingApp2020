@@ -1,0 +1,15 @@
+.image-auto{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+img{
+  height: 240px;
+  width: 475px;
+  object-fit: cover;
+}
+
+#forward-button-auto{
+  float: right;
+}
