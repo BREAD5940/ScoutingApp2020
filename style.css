@@ -1,3 +1,4 @@
+/*puts the sector, slider, and shield generator text in a line*/
 .start-position-slider{
   display: flex;
   flex-wrap: wrap;
@@ -7,12 +8,9 @@
   text-align: center;
 }
 
+/*changes the slider into a vertical position rather than a horizontal position*/
 #start-slider {
   -ms-transform: rotate(90deg); 
   -webkit-transform: rotate(90deg); 
   transform: rotate(90deg); 
-}
-
-#start-button{
-  
 }
