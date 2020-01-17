@@ -44,4 +44,5 @@ function flip() {
   flipGeneratorSector();
   flipSectorGenerator();
   flipInitiationLine();
+  console.log("It worked!");
 }
