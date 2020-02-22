@@ -56,6 +56,7 @@ console.log('Rotate: ' + angle + 'deg');
   }else{
     field.style.transform = 'rotate(180deg)';
 
+  }
 }
 
 /*finds the coordinates of each click the user makes on the map (will have to create another function to specify if the click was valid - was the scoring inputed - else, it is not a valid click)*/
