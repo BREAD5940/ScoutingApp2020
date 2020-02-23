@@ -14,16 +14,84 @@
       <button id="back-button-auto" type="button" onclick="toStartPage()"><</button>
       <button id="moved-off-line" type="button" onclick="movedOffLine()">Moved off line</button>
       <button id="flip-button-auto" type="button" onclick="flipField()">Flip</button>
-      <button id="fouls-button-auto" type="button" onclick="">Fouls</button>
+      <button id="fouls-button-auto" type="button" onclick="points()">Fouls</button>
       <button id="forward-button-auto" type="button" onclick="toTeleopPage()">></button>
     </div>
-    <p id="demo"></p>
+    <div id = "off-line">
+      <p>Moved off initiation line: </p>
+      <label class="switch">
+        <input type="checkbox">
+        <span class="slider round"></span>
+      </label>
+      <button id= "save-off-line" type = "button" onclick = "closeOffLine()">Close</button>
+    </div>
     <div class="image-auto">
-      <img id="field-image-auto" src="strategy-map.jpg" alt="Map of field and alliance stations." usemap="#fieldmap"/>
+      <img id="field-image-auto" src="strategy-map.jpg" alt="Map of field and alliance stations." usemap="#fieldmap" onclick = "showPoints(); coordinates()"/>
       <map name="fieldmap">
         <area id="control-panel-top" shape="rect" coords="288,27,307,63" alt="Control Panel Top" href="#">
         <area id="control-panel-bottom" shape="rect" coords="230,202,249,238" alt="Control Panel Bottom" href="#">
       </map>
+    </div>
+
+
+    <div class = "points" id = "points">
+      <div id = "titles">
+        <p id = "scored-title">#scored: </p>
+        <p id = "attempted-title">#attempted:</p>
+      </div>
+      <div class = "point-goals" id = "inner-points">
+        <p class = "scoring-titles" id = "inner-title">Inner</p>
+        <div class = "scored">
+          <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
+          <input type="number" id="number" value="0" />
+          <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
+        </div>
+        <div class = "attempted">
+          <div class="value-button" id="decrease" onclick="decreaseValue2()" value="Decrease Value">-</div>
+          <input type="number" id="number2" value="0" />
+          <div class="value-button" id="increase" onclick="increaseValue2()" value="Increase Value">+</div>
+        </div>
+      </div>
+      
+      <div class = "point-goals" id = "outer-points">
+        <p class = "scoring-titles" id = "outer-title">Outer</p>
+        <div class = "scored">
+          <div class="value-button" id="decrease" onclick="decreaseValue3()" value="Decrease Value">-</div>
+          <input type="number" id="number3" value="0" />
+          <div class="value-button" id="increase" onclick="increaseValue3()" value="Increase Value">+</div>
+        </div>
+        <div class = "attempted">
+          <div class="value-button" id="decrease" onclick="decreaseValue4()" value="Decrease Value">-</div>
+          <input type="number" id="number4" value="0" />
+          <div class="value-button" id="increase" onclick="increaseValue4()" value="Increase Value">+</div>
+        </div>
+      </div>
+
+      <div class = "point-goals" id = "low-points">
+        <p class = "scoring-titles" id = "low-title">Low</p>
+        <div class = "scored">
+          <div class="value-button" id="decrease" onclick="decreaseValue5()" value="Decrease Value">-</div>
+          <input type="number" id="number5" value="0" />
+          <div class="value-button" id="increase" onclick="increaseValue5()" value="Increase Value">+</div>
+        </div>
+        <div class = "attempted">
+          <div class="value-button" id="decrease" onclick="decreaseValue6()" value="Decrease Value">-</div>
+          <input type="number" id="number6" value="0" />
+          <div class="value-button" id="increase" onclick="increaseValue6()" value="Increase Value">+</div>
+        </div>
+      </div>
+
+      <div class = "coordinates">
+        <p id = "x-coord-title">X coordinate: </p>
+        <p id = "x-coord">num</p>
+        <p id = "y-coord-title">Y coordinate: </p>
+        <p id = "y-coord">num</p>
+      </div>
+
+      <div class = "score-saving">
+        <input type = "button" value = "Save" onclick = "savePointsData(); hidePoints()"></input>
+        <input type = "button" value = "Cancel" onclick = "cancelPoints(); hidePoints()"></input>
+      </div>
     </div>
   </body>
 </html>
