@@ -14,7 +14,8 @@
       <button id="back-button-auto" type="button" onclick="toStartPage()"><</button>
       <button id="moved-off-line" type="button" onclick="movedOffLine()">Moved off line</button>
       <button id="flip-button-auto" type="button" onclick="flipField()">Flip</button>
-      <button id="fouls-button-auto" type="button" onclick="points()">Fouls</button>
+      <button id = "control-panel-auto" type = "button" onclick = "showControl()">Control Panel</button>
+      <button id="fouls-button-auto" type="button" onclick="showFouls()">Fouls</button>
       <button id="forward-button-auto" type="button" onclick="toTeleopPage()">></button>
     </div>
     <div id = "off-line">
@@ -26,11 +27,7 @@
       <button id= "save-off-line" type = "button" onclick = "closeOffLine()">Close</button>
     </div>
     <div class="image-auto">
-      <img id="field-image-auto" src="strategy-map.jpg" alt="Map of field and alliance stations." usemap="#fieldmap" onclick = "showPoints(); coordinates()"/>
-      <map name="fieldmap">
-        <area id="control-panel-top" shape="rect" coords="288,27,307,63" alt="Control Panel Top" href="#">
-        <area id="control-panel-bottom" shape="rect" coords="230,202,249,238" alt="Control Panel Bottom" href="#">
-      </map>
+      <img id="field-image-auto" src="strategy-map.jpg" alt="Map of field and alliance stations." onclick = "showPoints(); coordinates()"/>
     </div>
 
 
@@ -40,7 +37,7 @@
         <p id = "attempted-title">#attempted:</p>
       </div>
       <div class = "point-goals" id = "inner-points">
-        <p class = "scoring-titles" id = "inner-title">Inner</p>
+        <p class = "scoring-titles" id = "inner-title">Inner:</p>
         <div class = "scored">
           <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
           <input type="number" id="number" value="0" />
@@ -54,7 +51,7 @@
       </div>
       
       <div class = "point-goals" id = "outer-points">
-        <p class = "scoring-titles" id = "outer-title">Outer</p>
+        <p class = "scoring-titles" id = "outer-title">Outer:</p>
         <div class = "scored">
           <div class="value-button" id="decrease" onclick="decreaseValue3()" value="Decrease Value">-</div>
           <input type="number" id="number3" value="0" />
@@ -68,7 +65,7 @@
       </div>
 
       <div class = "point-goals" id = "low-points">
-        <p class = "scoring-titles" id = "low-title">Low</p>
+        <p class = "scoring-titles" id = "low-title">Low:</p>
         <div class = "scored">
           <div class="value-button" id="decrease" onclick="decreaseValue5()" value="Decrease Value">-</div>
           <input type="number" id="number5" value="0" />
@@ -89,9 +86,93 @@
       </div>
 
       <div class = "score-saving">
-        <input type = "button" value = "Save" onclick = "savePointsData(); hidePoints()"></input>
-        <input type = "button" value = "Cancel" onclick = "cancelPoints(); hidePoints()"></input>
+        <input id = "save-button" type = "button" value = "Save" onclick = "savePointsData(); hidePoints()"></input>
+        <input id = "cancel-button" type = "button" value = "Cancel" onclick = "cancelPoints(); hidePoints()"></input>
       </div>
+    </div>
+
+    <div class = "fouls-list" id = "all-fouls">
+      <div class = "cards-line">
+        <input type = "button" value = "Foul" id = "foul-button" onclick = ""></input>
+        <div  class = "cards" id = "yellow-cards"> 
+          <p class = "foul-titles" id = "yellow-card-title">Yellow Cards: </p>
+          <div class="value-button" id="decrease" onclick="decreaseValue8()" value="Decrease Value">-</div>
+            <input type="number" id="number8" value="0" />
+            <div class="value-button" id="increase" onclick="increaseValue8()" value="Increase Value">+</div>
+        </div>
+        <div  class = "cards" id = "red-cards"> 
+          <p class = "foul-titles" id = "red-card-title">Red Cards: </p>
+          <div class="value-button" id="decrease" onclick="decreaseValue9()" value="Decrease Value">-</div>
+          <input type="number" id="number9" value="0" />
+          <div class="value-button" id="increase" onclick="increaseValue9()" value="Increase Value">+</div>
+        </div>
+        <div class = "switches-line">
+          <div id = "disqualified">
+            <p id = "disqualified-p">Disqualified:</p>
+            <label class="switch" id = "disqualified-switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div id = "disabled">
+            <p id = "disabled-p">Disabled:</p>
+            <label class="switch" id = "disabled-switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id = "foul-types">
+      <div class = "type-foul">
+        <p id = "trench-p">Trench: </p>
+        <div class="value-button" id="decrease" onclick="decreaseValue13()" value="Decrease Value">-</div>
+        <input type="number" id="number13" value="0" />
+        <div class="value-button" id="increase" onclick="increaseValue13()" value="Increase Value">+</div>
+      </div>
+      <div class = "type-foul">
+        <p id = "pin-p">Pin: </p>
+        <div class="value-button" id="decrease" onclick="decreaseValue14()" value="Decrease Value">-</div>
+        <input type="number" id="number14" value="0" />
+        <div class="value-button" id="increase" onclick="increaseValue14()" value="Increase Value">+</div>
+      </div>
+      <div class = "type-foul">
+        <p id = "human-p">Human:</p>
+        <div class="value-button" id="decrease" onclick="decreaseValue15()" value="Decrease Value">-</div>
+        <input type="number" id="number15" value="0" />
+        <div class="value-button" id="increase" onclick="increaseValue15()" value="Increase Value">+</div>
+      </div>
+      <div class = "type-foul">
+        <p id = "climb-p">Touch Climb: </p>
+        <div class="value-button" id="decrease" onclick="decreaseValue16()" value="Decrease Value">-</div>
+        <input type="number" id="number16" value="0" />
+        <div class="value-button" id="increase" onclick="increaseValue16()" value="Increase Value">+</div>
+      </div>
+      <div class = "type-foul">
+        <p id = "rendezvous-p">Opponents Rendezvous: </p>
+        <div class="value-button" id="decrease" onclick="decreaseValue17()" value="Decrease Value">-</div>
+        <input type="number" id="number17" value="0" />
+        <div class="value-button" id="increase" onclick="increaseValue17()" value="Increase Value">+</div>
+      </div>
+      <div class = "other-fouls">
+        <p>Other Reg. Foul: <input type="text" name="Foul" size= "15"><br></p>
+        <p>Other Tech: <input type="text" name="Tech" size= "15"><br></p>
+        <p>Other Protected Zone: <input type="text" name="Zone" size= "15" ><br></p>
+      </div>
+      <div class = "save-fouls">
+        <input id = "save-foul-button" type = "button" value = "Save" onclick = "hideFouls()"></input>
+        <input id = "cancel-foul-button" type = "button" value = "Cancel" onclick = "hideFouls()"></input>
+      </div>
+    </div>
+    <div id = "control-panel">
+      <input id = "rotation" type = "button" value = "Rotation" onclick = "rotationTime()"></input>
+      <p id= "time-rot" class = "control-time">Time:</p>
+      <input id = "position" type = "button" value = "Position" onclick = "positionTime()"></input>
+      <p id = "time-pos" class = "control-time">Time:</p>
+      <input id = "save-control" type = "button" value = "Save" onclick = "hideControl()"></input>
+      <input id = "cancel-control" type = "button" value = "Cancel" onclick = "hideControl()"></input>
     </div>
   </body>
 </html>
