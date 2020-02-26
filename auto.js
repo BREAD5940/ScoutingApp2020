@@ -148,6 +148,36 @@ function decreaseValue6() {
   document.getElementById('number6').value = value;
 }
 
+function increaseValue8() {
+  var value = parseInt(document.getElementById('number8').value, 10);
+  value = isNaN(value) ? 0 : value;
+  value++;
+  document.getElementById('number8').value = value;
+}
+
+function decreaseValue8() {
+  var value = parseInt(document.getElementById('number8').value, 10);
+  value = isNaN(value) ? 0 : value;
+  value < 1 ? value = 1 : '';
+  value--;
+  document.getElementById('number8').value = value;
+}
+
+function increaseValue9() {
+  var value = parseInt(document.getElementById('number9').value, 10);
+  value = isNaN(value) ? 0 : value;
+  value++;
+  document.getElementById('number9').value = value;
+}
+
+function decreaseValue9() {
+  var value = parseInt(document.getElementById('number9').value, 10);
+  value = isNaN(value) ? 0 : value;
+  value < 1 ? value = 1 : '';
+  value--;
+  document.getElementById('number9').value = value;
+}
+
 
 function coordinates(){
   $(document).ready(function() {
@@ -197,4 +227,34 @@ function cancelPoints(){
   document.getElementById('number4').value = (0);
   document.getElementById('number5').value = (0);
   document.getElementById('number6').value = (0);
+}
+
+function showFouls(){
+  document.getElementById('foul-types').style.display = 'block';
+}
+
+function hideFouls(){
+  document.getElementById('foul-types').style.display = 'none';
+}
+
+function trackFouls(){
+
+}
+
+function rotationTime(){
+  var date = new Date();
+  document.getElementById('time-rot').innerHTML = date;
+}
+
+function positionTime(){
+  var date = new Date();
+  document.getElementById('time-pos').innerHTML = date;
+}
+
+function showControl(){
+  document.getElementById('control-panel').style.display = 'flex';
+}
+
+function hideControl(){
+  document.getElementById('control-panel').style.display = 'none';
 }
