@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="notes.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="notes.js"></script>
+    <form>
+      <p id = "e-stop">E-Stop: 
+          <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+          </label>
+      </p>
+      <p id = "broke">Broke: 
+          <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+          </label>
+      </p>
+      <label for="total-rp">Total RP:</label>
+      <input type="number" id="rp" name="total-rp" min = "0">
+      <br>
+      <label for="total-points">Total Points:</label>
+      <input type="number" id="p" name="total-points" min= "0">
+      <br>
+      <p id = "driver-p">Driver Rank: 
+      <br>
+      <input type="range" min="1" max="10" value="5" class="slider" id="driver-rank">
+      </p>
+      <br>
+      <p id = "human-p">Human Player Rank:
+      <br>
+      <input type="range" min="1" max="10" value="5" class="slider" id="player-rank">
+      </p>
+      <br>
+      <p id = "defense-p">Defense:
+      <br>
+      <input type="range" min="1" max="10" value="5" class="slider" id="defense-rank">
+      </p>
+      <br>
+      <label for="notes">Notes:</label>
+      <input type="text" id="notes" name="notes" width = "20" height = "40"><br><br>
+      <input type="submit">
+    </form>
+  </body>
+</html>
