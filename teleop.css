@@ -1,4 +1,4 @@
-.image-teleop{
+.image-auto{
   width: 100%;
   display: flex;
   justify-content: center;
@@ -7,15 +7,322 @@
 img{
   width: 90%;
   height: 80%;
+  /*height: 240px;
+  width: 475px;*/
   object-fit: cover;
 }
 
-#forward-button-teleop{
+#forward-button-auto{
   float: right;
 }
 
-.buttons-teleop{
+.buttons-auto{
   width: 100%;
   display: flex;
   justify-content: space-between;
+}
+
+#off-line{
+  display: none;
+  justify-content: space-around;
+}
+
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 15.5px;
+  width: 15.5px;
+  left: 2px;
+  bottom: 2.5px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #82181eff;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #82181eff;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+
+
+.value-button {
+  display: inline-block;
+  border: 1px solid #ddd;
+  margin: 0px;
+  width: 40px;
+  height: 20px;
+  text-align: center;
+  vertical-align: middle;
+  padding: 11px 0;
+  background: #eee;
+}
+
+.value-button:hover {
+  cursor: pointer;
+}
+
+form #decrease {
+  margin-right: -4px;
+  border-radius: 8px 0 0 8px;
+}
+
+form #increase {
+  margin-left: -4px;
+  border-radius: 0 8px 8px 0;
+}
+
+form #input-wrap {
+  margin: 0px;
+  padding: 0px;
+}
+
+input#number, #number2, #number3, #number4, #number5, #number6, #number8, #number9, #number13, #number14, #number15, #number16, #number17{
+  text-align: center;
+  border: none;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin: 0px;
+  width: 40px;
+  height: 40px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.score-saving{
+  margin-top: 10px;
+  margin-left: 132px;
+}
+
+#cancel-button{
+  margin-left: 97px;
+}
+
+#titles{
+  display: flex;
+  flex: wrap;
+  align-content: space-between;
+  height: 50px;
+  width: 100%;
+}
+
+.points{
+  width: 100%;
+  display: none;
+}
+
+.point-goals{
+  display: flex;
+  flex: wrap;
+  flex-direction: row;
+  align-content: space-between;
+}
+
+.scoring-titles{
+  margin: 10px 30px 0px 0px;
+}
+
+.scored{
+  margin: 0px 20px 0px 20px;
+}
+
+#scored-title{
+  margin: 0px 40px 0px 120px;
+}
+
+#attempted-title{
+  margin: 0px 40px 0px 50px;
+}
+
+#outer-title{
+  margin-left: -2.5px;
+}
+
+#low-title{
+  margin-right: 34.5px;
+  margin-top: 10px;
+}
+
+.coordinates{
+  display: flex;
+  flex: wrap;
+  flex-direction: row;
+  align-content: space-between;
+  margin-left: 90px;
+}
+
+#x-coord-title{
+  margin: 10px 0px 0px 0px;
+}
+
+#y-coord-title{
+  margin: 10px 0px 0px 32px;
+}
+
+#x-coord, #y-coord{
+  margin: 10px 5px 0px 5px;
+}
+
+.points{
+  width: 380px;
+  margin: 0 auto;
+}
+
+.cards{
+  display: flex;
+  flex: wrap;
+  flex-direction: row;
+  align-content: space-between;
+}
+
+.cards-line{
+  float: left;
+}
+
+#yellow-card-title{
+  margin-right: 20px;
+}
+
+#red-card-title{
+  margin-right: 38.5px;
+}
+
+#disqualified, #disabled{
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+}
+
+#disqualified-p{
+  margin: 105px 10px 0px 30px;
+}
+
+#disabled-p{
+  margin: 30px 31px 0px 30px;
+}
+
+#disqualified-switch{
+  margin: 102px 10px 0px 10px;
+}
+
+#disabled-switch{
+  margin: 28px 10px 0px 10px;
+}
+
+#foul-button{
+  width: 70px;
+  height: 50px;
+  margin: 20px 0px 20px 137px;
+}
+
+.fouls-list{
+  height: 100%;
+  width: 420px;
+  margin: 0 auto;
+  display: none;
+}
+
+.type-foul{
+  display: flex;
+  flex: wrap;
+  flex-direction: row;
+}
+
+#rendezvous-p{
+  margin-right: 20px;
+}
+
+#climb-p{
+  margin-right: 87px;
+}
+
+#human-p{
+  margin-right: 122px;
+}
+
+#pin-p{
+  margin-right: 148px;
+}
+
+#trench-p{
+  margin-right: 122.5px;
+}
+
+#foul-types{
+  display: none;
+}
+
+#control-panel{
+  display: none;
+  flex: wrap;
+  flex-direction: row;
+  align-content: space-between;
+}
+
+#rotation{
+  margin: 10px 10px 0px 0px;
+}
+
+#position{
+  margin: 10px 10px 0px 50px;
+}
+
+.control-time{
+  margin: 12px 20px 0px 0px;
+}
+
+#stages{
+  display: none;
+  flex: wrap;
+  flex-direction: row;
+  align-content: space-between;
 }
