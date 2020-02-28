@@ -19,13 +19,14 @@ function toGamePage() {
 
 //rotates the slider to be upside down from already rotated position
 function flipInitiationLine() {
-    var initiationLine = document.getElementById('start-slider');
-    var sector = document.getElementById('sp-sector');
-    if (sector.innerHTML == ("Shield <br> Generator")) {
-        initiationLine.style.transform = 'rotate(270deg)';
-    } else if (sector.innerHTML == ("Sector")) {
-        initiationLine.style.transform = 'rotate(90deg)';
-    }
+
+  var initiationLine = document.getElementById('start-slide');
+  var sector = document.getElementById('sp-sector');
+  if (sector.innerHTML == ("Shield <br> Generator")) {
+  initiationLine.style.transform = 'rotate(270deg)';
+  } else if (sector.innerHTML == ("Sector")){
+    initiationLine.style.transform = 'rotate(90deg)';
+  }
 }
 
 //changes the text from "sector" to "shield generator"
