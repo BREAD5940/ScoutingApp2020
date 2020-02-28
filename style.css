@@ -105,15 +105,21 @@ input:checked + .slider:before {
   -webkit-transform: translateX(20px);
   -ms-transform: translateX(20px);
   transform: translateX(20px);
+  box-shadow: #97484C;
+
 }
+
 
 /* Rounded sliders */
 .slider.round {
   border-radius: 34px;
+  box-shadow: #97484C;
+  background-color: #97484C;
 }
 
 .slider.round:before {
   border-radius: 50%;
+  box-shadow: #97484C;
 }
 
 .value-button {
@@ -627,6 +633,7 @@ input[type=number]::-webkit-outer-spin-button {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 
@@ -698,5 +705,19 @@ input[class=num]{
 
 
 button{
-  border-radius: 22%;
+  border-radius: 10%;
+  background-color: #97484C;
+  border-style: none;
+  padding: 5px 15px 5px 15px;
+  text-align: center;
+  color: #dddddd;
+}
+
+#submit{
+  border-radius: 8px;
+  background-color: #97484C;
+  border-style: none;
+  padding: 5px 15px 5px 15px;
+  text-align: center;
+  color: #dddddd;
 }
