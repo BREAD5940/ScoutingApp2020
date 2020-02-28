@@ -1,3 +1,10 @@
+html{
+  background:#82181e;
+  color:#fff;
+  font:14px Helvetica,sans-serif
+}
+
+
 /*puts the sector, slider, and shield generator text in a line*/
 .start-position-slide{
   display: flex;
@@ -87,11 +94,11 @@ img{
 }
 
 input:checked + .slider {
-  background-color: #82181eff;
+  background-color: #1023b2;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #82181eff;
+  box-shadow: 0 0 1px #1023b2;
 }
 
 input:checked + .slider:before {
@@ -290,6 +297,11 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .type-foul{
+  display: flex;
+  flex: wrap;
+  flex-direction: row;
+}
+.shot-bloc{
   display: flex;
   flex: wrap;
   flex-direction: row;
@@ -652,4 +664,34 @@ input[type=number]::-webkit-outer-spin-button {
 #notes{
   height: 200px;
   width: 80%;
+}
+.button{
+  margin:0 5px 0 5px;
+  cursor:pointer;
+  width:29px;
+  height:29px;
+  float:left;
+  text-align:center;
+  color: #000000;
+  line-height: 30px;
+  background: #fff;
+}
+
+input[class=num]{
+  float: left;
+  width: 40px;
+  font: 700 20px Helvetica,sans-serif;
+  padding: 3px 0 0;
+  text-align: center;
+  background:000;
+  color: #fff;
+  border: none;
+}
+
+.type-foul label{
+  font: 200 20px Helvetica,sans-serif;
+}
+
+.shot-bloc label{
+  font: 200 20px Helvetica,sans-serif;
 }
