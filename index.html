@@ -22,12 +22,13 @@
     <input type="hidden" class="hidden" id="posTime" name="posTime"/>
 
     <div id="first-page">
+        <h1>BREAD Scouting</h1>
         <div class="basic-info">
-            <p>Name: <input type="text" name="Name" size="15" required><br></p>
-            <p>Team #: <input type="text" name="Team#" size="14" required><br></p>
-            <p>Match #: <input type="text" name="Match#" size="13" required><br></p>
+            <p>Name: <input type="text" name="Name" size="15" ><br></p>
+            <p>Team #: <input type="text" name="Team#" size="14" ><br></p>
+            <p>Match #: <input type="text" name="Match#" size="13" ><br></p>
             <p>Alliance Station:
-                <select name="Alliance-station" required>
+                <select name="Alliance-station" >
                     <option value="Red1">Red 1</option>
                     <option value="Red2">Red 2</option>
                     <option value="Red3">Red 3</option>
@@ -328,7 +329,7 @@
             <textarea rows=5 cols=25 name="notes" id="notes"></textarea>
         </div>
         <br>
-        <input type="submit" value="Submit Data" >
+        <input type="submit" value="Submit Data" onclick="handleSubmit()">
     </div>
 
 </form>
@@ -339,13 +340,12 @@
 
     form.addEventListener('submit', e => {
         e.preventDefault();
-        hideEverything();
-        document.getElementById('first-page').style.display = 'block';
         fetch(scriptURL, { method: 'POST', body: new FormData(form)})
             .then(response => console.log('Success!', response))
             .catch(error => console.error('Error!', error.message));
         form.reset();
-
+        hideEverything();
+        document.getElementById('first-page').style.display = 'block';
     })
 </script>
 

@@ -20,13 +20,13 @@ function toGamePage() {
 //rotates the slider to be upside down from already rotated position
 function flipInitiationLine() {
 
-  var initiationLine = document.getElementById('start-slide');
-  var sector = document.getElementById('sp-sector');
-  if (sector.innerHTML == ("Shield <br> Generator")) {
-  initiationLine.style.transform = 'rotate(270deg)';
-  } else if (sector.innerHTML == ("Sector")){
-    initiationLine.style.transform = 'rotate(90deg)';
-  }
+    var initiationLine = document.getElementById('start-slide');
+    var sector = document.getElementById('sp-sector');
+    if (sector.innerHTML == ("Shield <br> Generator")) {
+        initiationLine.style.transform = 'rotate(270deg)';
+    } else if (sector.innerHTML == ("Sector")) {
+        initiationLine.style.transform = 'rotate(90deg)';
+    }
 }
 
 //changes the text from "sector" to "shield generator"
@@ -263,12 +263,23 @@ function reset() {
     document.getElementById('first-page').style.display = 'block';
 }
 
-function startClimb(){
+function startClimb() {
     document.getElementById('climb-start').value = Date.now();
     document.getElementById('begin-climb').innerHTML = "BEGUN";
 }
 
-function endClimb(){
+function endClimb() {
     document.getElementById('climb-end').value = Date.now();
     document.getElementById('stop-climb').innerHTML = "COMPLETED";
+}
+
+function handleSubmit() {
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwRHIPRHp5KN5BAshpQJH4OF1tK960U10v0S5-z2555FLDJ9o8/exec';
+    const form = document.forms['form'];
+    fetch(scriptURL, {method: 'POST', body: new FormData(form)})
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message));
+    form.reset();
+    hideEverything();
+    document.getElementById('first-page').style.display = 'block';
 }
