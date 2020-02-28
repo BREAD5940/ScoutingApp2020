@@ -219,20 +219,38 @@ function backToEndgame() {
 }
 
 var driverSlider = document.getElementById("driver-rank");
-var output = document.getElementById("display");
-var infoBox = document.getElementById("info");
+var outputDrive = document.getElementById("display-drive");
+var infoBoxDrive = document.getElementById("info-drive");
+
+var hpSlider  = document.getElementById("player-rank");
+var outputHP = document.getElementById("display-hp");
+
+var defSlider = document.getElementById("defense-rank");
+var outputDef = document.getElementById("display-def");
+
+var defAvoidSlider = document.getElementById("defense-avoid-rank")
+var outputDefAvoid = document.getElementById("display-defavoid");
+
+function setup(){
+    outputDrive.innerHTML = getName(driverSlider.value);
+    // infoBoxDrive.innerHTML = getText(driverSlider.value);
+    outputHP.innerHTML = getName(hpSlider.value);
+    outputDef.innerHTML = getName(defSlider.value);
+    outputDefAvoid.innerHTML = getName(defAvoidSlider.value);
+
+}
 
 function getName(slideVal) {
     if (slideVal === "1") {
-        var toReturn = "1 Does Not Meet Standards: ";
+        var toReturn = "1 Does Not Meet Standards ";
     } else if (slideVal === "2") {
-        var toReturn = "2 Below average: ";
+        var toReturn = "2 Below average ";
     } else if (slideVal === "3") {
-        var toReturn = "3 Average: ";
+        var toReturn = "3 Average ";
     } else if (slideVal === "4") {
-        var toReturn = "4 Above Average: ";
+        var toReturn = "4 Above Average ";
     } else if (slideVal === "5") {
-        var toReturn = "5 Excellent: ";
+        var toReturn = "5 Excellent ";
     }
     return toReturn;
 }
@@ -254,9 +272,23 @@ function getText(slideVal) {
 
 // Update the current slider value (each time you drag the slider handle)
 driverSlider.onchange = function () {
-    output.innerHTML = getName(driverSlider.value);
-    infoBox.innerHTML = getText(driverSlider.value);
+    outputDrive.innerHTML = getName(driverSlider.value);
+    // infoBoxDrive.innerHTML = getText(driverSlider.value);
 };
+
+hpSlider.onchange = function () {
+    outputHP.innerHTML = getName(hpSlider.value);
+};
+
+defSlider.onchange = function () {
+    outputDef.innerHTML = getName(defSlider.value);
+};
+
+defAvoidSlider.onchange = function () {
+    outputDefAvoid.innerHTML = getName(defAvoidSlider.value);
+};
+
+
 
 function reset() {
     hideEverything();

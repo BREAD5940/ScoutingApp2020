@@ -7,7 +7,7 @@
     <title>BREAD Scouting App</title>
     <link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
-<body onload="hideEverything()">
+<body onload="hideEverything(); setup()">
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>-->
 <!--<script src="script.js"></script>-->
 <form id="form" name="form" >
@@ -264,7 +264,7 @@
     <div id="note-page">
         <div class="top">
             <button id="backToEndgame()" type="button" onclick="backToEndgame()"><</button>
-            <p id="notes-title">Notes</p>
+            <h1 id="notes-title">Notes</h1>
         </div>
         <p id="e-stop">E-Stop:
             <label class="switch">
@@ -306,22 +306,25 @@
             <input type="number" id="total-points" name="total-points" min="0">
         </div>
         <div class="driver-rank-div">
-            <p id="driver-p">Driver Rank: </p>
+            <h2 id="driver-p">Driver Rank: </h2>
             <input type="range" min="1" max="5" value="1" class="slider-ranks" id="driver-rank" name="driveRank">
-            <h3 id="display" style="text-align:left;"></h3>
-            <p id="info"></p>
+            <h4 id="display-drive" style="text-align:left;"></h4>
+            <p id="info-drive"></p>
         </div>
         <div class="human-rank-div">
-            <p id="human-p">Human Player Rank: </p>
+            <h2 id="human-p">Human Player Rank: </h2>
             <input type="range" min="1" max="5" value="1" class="slider-ranks" id="player-rank" name="playRank">
+            <h4 id="display-hp" style="text-align:left;"></h4>
         </div>
         <div class="defense-rank-div">
-            <p id="defense-p">Defense: </p>
+            <h2 id="defense-p">Defense: </h2>
             <input type="range" min="1" max="5" value="1" class="slider-ranks" id="defense-rank" name="defRank">
+            <h4 id="display-def" style="text-align:left;"></h4>
         </div>
         <div class="defense-avoid-div">
-            <p id="defense-avoid-p">Defense Avoidance: </p>
+            <h2 id="defense-avoid-p">Defense Avoidance: </h2>
             <input type="range" min="1" max="5" value="1" class="slider-ranks" id="defense-avoid-rank" name="defAvoidRank">
+            <h4 id="display-defavoid" style="text-align:left;"></h4>
         </div>
         <div class="written-notes">
             <label for="notes">Notes:</label>
