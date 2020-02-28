@@ -695,3 +695,8 @@ input[class=num]{
 .shot-bloc label{
   font: 200 20px Helvetica,sans-serif;
 }
+
+
+button{
+  border-radius: 22%;
+}
