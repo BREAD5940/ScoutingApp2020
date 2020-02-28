@@ -165,8 +165,11 @@ input#number, #number2, #number3, #number4, #number5, #number6, #number8, #numbe
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
+    -webkit-appearance: button-bevel;
     margin: 0;
+    opacity: 1;
+  background-color: #97484C;
+  color: #dddddd;
 }
 
 .score-saving{
@@ -414,23 +417,6 @@ form #input-wrap {
   margin: 0px;
   padding: 0px;
 }
-
-input#numberT, #number2T, #number3T, #number4T, #number5T, #number6T, #number8T, #number9T, #number13T, #number14T, #number15T, #number16T, #number17T{
-  text-align: center;
-  border: none;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  margin: 0px;
-  width: 40px;
-  height: 40px;
-}
-
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
 .score-saving{
   margin-top: 10px;
   margin-left: 132px;
@@ -720,4 +706,8 @@ button{
   padding: 5px 15px 5px 15px;
   text-align: center;
   color: #dddddd;
+}
+
+#start-slide > span.ui-slider-handle{
+  background-color: #4F0E11 !important;
 }
