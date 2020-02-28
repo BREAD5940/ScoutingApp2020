@@ -306,12 +306,6 @@ function endClimb() {
 }
 
 function handleSubmit() {
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwRHIPRHp5KN5BAshpQJH4OF1tK960U10v0S5-z2555FLDJ9o8/exec';
-    const form = document.forms['form'];
-    fetch(scriptURL, {method: 'POST', body: new FormData(form)})
-        .then(response => console.log('Success!', response))
-        .catch(error => console.error('Error!', error.message));
-    form.reset();
-    hideEverything();
-    document.getElementById('first-page').style.display = 'block';
+
+
 }

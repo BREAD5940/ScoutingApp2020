@@ -332,11 +332,24 @@
             <textarea rows=5 cols=25 name="notes" id="notes"></textarea>
         </div>
         <br>
-        <input name="submit" id="submit" type="submit" value="Submit Data" onclick="handleSubmit()">
+        <input name="submit" id="submit" type="submit" value="Submit Data">
     </div>
 
 </form>
 
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwRHIPRHp5KN5BAshpQJH4OF1tK960U10v0S5-z2555FLDJ9o8/exec';
+    const form = document.forms['form'];
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        fetch(scriptURL, {method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message));
+        form.reset();
+        hideEverything();
+        document.getElementById('first-page').style.display = 'block';
+    };
+</script>
 <script src="script.js"></script>
 </body>
 </html>
