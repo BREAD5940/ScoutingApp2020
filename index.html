@@ -9,7 +9,11 @@
   <body onload="hideEverything()">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="script.js"></script>
-    <form>
+    <form id="form" name="form" class="gform" method="POST" data-email="jmchugo20@dtechhs.org" action="https://script.google.com/a/dtechhs.org/macros/s/AKfycbyPatF4An_6NLlmCLy_KosB3riQvTz-l5Ye18EyqDO2JUVziwVZ/exec">
+      <input type="hidden" class="hidden" id="start-time" name="start-time"/>
+      <input type="hidden" class="hidden" id="shots" name="shots" value="">
+      <input type="hidden" class="hidden" id="climb-start" name="climb-start">
+      
       <div id = "first-page">
         <div class="basic-info">
           <p>Name: <input type="text" name="Name" size= "15" required><br></p>
@@ -56,274 +60,127 @@
 
 
       <div id = "auto-page">
-        <div class="buttons-auto">
-          <button id="back-button-auto" type="button" onclick="toStartPage()"><</button>
+        <h2>AUTO</h2>
+        <div class="buttons">
+          <button id="back-button" type="button" onclick="toStartPage()"><</button>
           <button id="moved-off-line" type="button" onclick="movedOffLine()">Moved off line</button>
-          <button id="flip-button-auto" type="button" onclick="flipField()">Flip</button>
-          <button id = "control-panel-auto" type = "button" onclick = "showControl()">Control Panel</button>
-          <button id="fouls-button-auto" type="button" onclick="showFouls()">Fouls</button>
-          <button id="forward-button-auto" type="button" onclick="toTeleopPage()">></button>
+          <button id="flip-button" type="button" onclick="flipField()">Flip</button>
+          <button id = "stages-button" type = "button" onclick = "showStagesAuto()">Stages</button>
+          <button id="fouls-button" type="button" onclick="showFouls()">Fouls</button>
+          <button id="forward-button" type="button" onclick="toTeleopPage()">></button>
         </div>
         <div id = "off-line">
           <p>Moved off initiation line: </p>
           <label class="switch">
-            <input type="checkbox">
+            <input type="checkbox" id="offLine" name="offLine">
             <span class="slider round"></span>
           </label>
           <button id= "save-off-line" type = "button" onclick = "closeOffLine()">Close</button>
         </div>
-
-        <div class = "points" id = "points">
-          <div id = "titles">
-            <p id = "scored-title">#scored: </p>
-            <p id = "attempted-title">#attempted:</p>
-          </div>
-          <div class = "point-goals" id = "inner-points">
-            <p class = "scoring-titles" id = "inner-title">Inner:</p>
-            <div class = "scored">
-              <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
-              <input type="number" id="number" value="0" />
-              <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
+          <div class="popup" id="scoring">
+            <h4>Record Shot</h4>
+            <input class="num" id="x"/> <!---TODO onclick stuff-->
+            <input class="num" id="y"/>
+            <input type="hidden" class="num" id="time"/>
+            <div id="inner">
+              <label for="inner">Inner: </label>
+              <div class="dec button">-</div>
+              <input class="num" type="number" name="inner" id="inner" value="0" >
+              <div class="inc button">+</div>
             </div>
-            <div class = "attempted">
-              <div class="value-button" id="decrease" onclick="decreaseValue2()" value="Decrease Value">-</div>
-              <input type="number" id="number2" value="0" />
-              <div class="value-button" id="increase" onclick="increaseValue2()" value="Increase Value">+</div>
+            <div id="outer">
+              <label for="outer">Outer: </label>
+              <div class="dec button">-</div>
+              <input class="num" type="number" name="outer" id="outer" value="0" >
+              <div class="inc button">+</div>
             </div>
-          </div>
-          
-          <div class = "point-goals" id = "outer-points">
-            <p class = "scoring-titles" id = "outer-title">Outer:</p>
-            <div class = "scored">
-              <div class="value-button" id="decrease" onclick="decreaseValue3()" value="Decrease Value">-</div>
-              <input type="number" id="number3" value="0" />
-              <div class="value-button" id="increase" onclick="increaseValue3()" value="Increase Value">+</div>
+            <div id="lower">
+              <label for="lower">Inner: </label>
+              <div class="dec button">-</div>
+              <input class="num" type="number" name="lower" id="lower" value="0" >
+              <div class="inc button">+</div>
             </div>
-            <div class = "attempted">
-              <div class="value-button" id="decrease" onclick="decreaseValue4()" value="Decrease Value">-</div>
-              <input type="number" id="number4" value="0" />
-              <div class="value-button" id="increase" onclick="increaseValue4()" value="Increase Value">+</div>
+            <div id="miss">
+              <label for="miss">Inner: </label>
+              <div class="dec button">-</div>
+              <input class="num" type="number" name="miss" id="miss" value="0" >
+              <div class="inc button">+</div>
             </div>
+            <button id="save-shot" onClick="saveShotAuto()">Save</button>
           </div>
 
-          <div class = "point-goals" id = "low-points">
-            <p class = "scoring-titles" id = "low-title">Low:</p>
-            <div class = "scored">
-              <div class="value-button" id="decrease" onclick="decreaseValue5()" value="Decrease Value">-</div>
-              <input type="number" id="number5" value="0" />
-              <div class="value-button" id="increase" onclick="increaseValue5()" value="Increase Value">+</div>
-            </div>
-            <div class = "attempted">
-              <div class="value-button" id="decrease" onclick="decreaseValue6()" value="Decrease Value">-</div>
-              <input type="number" id="number6" value="0" />
-              <div class="value-button" id="increase" onclick="increaseValue6()" value="Increase Value">+</div>
-            </div>
+        <div id = "fouls" class="popup">
+          <div class = "type-foul">
+            <label for = "trench">Trench: </label>
+            <div class="dec button">-</div>
+            <input class="num" type="number" name="trench" id="trench" value="0" >
+            <div class="inc button">+</div>
           </div>
-
-          <div class = "coordinates">
-            <p id = "x-coord-title">X coordinate: </p>
-            <p id = "x-coord">num</p>
-            <p id = "y-coord-title">Y coordinate: </p>
-            <p id = "y-coord">num</p>
+          <div class = "type-foul">
+            <label for="pin">Pin: </label>
+            <div class="dec button">-</div>
+            <input class="num" type="number" name="pin" id="pin" value="0" >
+            <div class="inc button">+</div>
           </div>
-
-          <div class = "score-saving">
-            <input id = "save-button" type = "button" value = "Save" onclick = "savePointsData(); hidePoints()"></input>
-            <input id = "cancel-button" type = "button" value = "Cancel" onclick = "cancelPoints(); hidePoints()"></input>
+          <div class = "type-foul">
+            <label for="human">Human:</label>
+            <div class="dec button">-</div>
+            <input class="num" type="number" name="human" id="human" value="0" >
+            <div class="inc button">+</div>
           </div>
+          <div class = "type-foul">
+            <label for="touch">Touch Climb: </label>
+            <div class="dec button">-</div>
+            <input class="num" type="number" name="touch" id="touch" value="0" >
+            <div class="inc button">+</div>
+          </div>
+          <div class = "type-foul">
+            <label for="rdz">Opponents Rendezvous: </label>
+            <div class="dec button">-</div>
+            <input class="num" type="number" name="rdz" id="rdz" value="0" >
+            <div class="inc button">+</div>
+          </div>
+          <div class = "type-foul">
+            <label for="protecc">Protected Zones: </label>
+            <div class="dec button">-</div>
+            <input class="num" type="number" name="protecc" id="protecc" value="0" >
+            <div class="inc button">+</div>
+          </div>
+          <div class="type-foul">
+            <label for="tech">Other Techs: </label>
+            <div class="dec button">-</div>
+            <input class="num" type="number" name="tech" id="tech" value="0" >
+            <div class="inc button">+</div>
+          </div>
+          <div class="type-foul">
+            <label for="foul">Other Fouls: </label>
+            <div class="dec button">-</div>
+            <input class="num" type="number" name="foul" id="foul" value="0" >
+            <div class="inc button">+</div>
+          </div>
+          <button id="save-fouls" onClick="hideFouls()">Save</button>
         </div>
+        <div id = "stages" class="popup">
+          <div>
+            <label for="stage-one">Stage 1 Capacity: </label>
+            <input id="stage-one" type="button" value="1"/>
+          </div>
+          <div>
+            <label for="stage-two">Stage 2 Capacity: </label>
+            <input id="stage-two" type="button" value="2"/>
+          </div>
+          <div>
+            <label for="stage-three">Stage 3 Capacity: </label>
+            <input id="stage-three" type="button" value="3"/>
+          </div>
 
-        <div id = "foul-types">
-          <div class = "type-foul">
-            <p id = "trench-p">Trench: </p>
-            <div class="value-button" id="decrease" onclick="decreaseValue13()" value="Decrease Value">-</div>
-            <input type="number" id="number13" value="0" />
-            <div class="value-button" id="increase" onclick="increaseValue13()" value="Increase Value">+</div>
-          </div>
-          <div class = "type-foul">
-            <p id = "pin-p">Pin: </p>
-            <div class="value-button" id="decrease" onclick="decreaseValue14()" value="Decrease Value">-</div>
-            <input type="number" id="number14" value="0" />
-            <div class="value-button" id="increase" onclick="increaseValue14()" value="Increase Value">+</div>
-          </div>
-          <div class = "type-foul">
-            <p id = "human-p">Human:</p>
-            <div class="value-button" id="decrease" onclick="decreaseValue15()" value="Decrease Value">-</div>
-            <input type="number" id="number15" value="0" />
-            <div class="value-button" id="increase" onclick="increaseValue15()" value="Increase Value">+</div>
-          </div>
-          <div class = "type-foul">
-            <p id = "climb-p">Touch Climb: </p>
-            <div class="value-button" id="decrease" onclick="decreaseValue16()" value="Decrease Value">-</div>
-            <input type="number" id="number16" value="0" />
-            <div class="value-button" id="increase" onclick="increaseValue16()" value="Increase Value">+</div>
-          </div>
-          <div class = "type-foul">
-            <p id = "rendezvous-p">Opponents Rendezvous: </p>
-            <div class="value-button" id="decrease" onclick="decreaseValue17()" value="Decrease Value">-</div>
-            <input type="number" id="number17" value="0" />
-            <div class="value-button" id="increase" onclick="increaseValue17()" value="Increase Value">+</div>
-          </div>
-          <div class = "other-fouls">
-            <p>Other Reg. Foul: <input type="text" name="Foul" size= "15"><br></p>
-            <p>Other Tech: <input type="text" name="Tech" size= "15"><br></p>
-            <p>Other Protected Zone: <input type="text" name="Zone" size= "15" ><br></p>
-          </div>
-          <div class = "save-fouls">
-            <input id = "save-foul-button" type = "button" value = "Save" onclick = "hideFouls()"></input>
-            <input id = "cancel-foul-button" type = "button" value = "Cancel" onclick = "hideFouls()"></input>
-          </div>
+          <input id="save-stages" type="button" value="Close" onclick="hideStages()"/>
         </div>
-        <div id = "control-panel">
-          <input id = "rotation" type = "button" value = "Rotation" onclick = "rotationTime()"></input>
-          <p id= "time-rot" class = "control-time">Time:</p>
-          <input id = "position" type = "button" value = "Position" onclick = "positionTime()"></input>
-          <p id = "time-pos" class = "control-time">Time:</p>
-          <input id = "save-control" type = "button" value = "Save" onclick = "hideControl()"></input>
-          <input id = "cancel-control" type = "button" value = "Cancel" onclick = "hideControl()"></input>
-        </div>
-        <div class="image-auto">
-          <img id="field-image-auto" src="strategy-map.jpg" alt="Map of field and alliance stations." onclick = "showPoints(); coordinates()"/>
+        <div class="image">
+          <img id="field-image" src="strategy-map.jpg" alt="Map of field and alliance stations." onclick = "showPoints(); coordinates()"/>
         </div>
       </div>
-
-
-
-
-      <div id = "teleop-page">
-        <div class="buttons-teleop">
-          <button id="back-button-teleop" type="button" onclick="backToAuto()"><</button>
-          <button id="stages-button" type="button" onclick="showStages()">Stages</button>
-          <button id="flip-button-teleop" type="button" onclick="flipField()">Flip</button>
-          <button id = "control-panel-teleop" type = "button" onclick = "showControl()">Control Panel</button>
-          <button id="fouls-button-teleop" type="button" onclick="showFouls()">Fouls</button>
-          <button id="forward-button-teleop" type="button" onclick="toEndgame()">></button>
-        </div>
-        <div id = "stages">
-          <input id = "one" type = "button" value = "1" onclick = "stageOneTime()"></input>
-          <input id = "two" type = "button" value = "2" onclick = "stageTwoTime()"></input>
-          <input id = "three" type = "button" value = "3" onclick = "stageThreeTime()"></input>
-          <input id = "save-stages" type = "button" value = "Close" onclick = "hideStages()"></input>
-        </div>
-        <div class="image-teleop">
-          <img id="field-image-teleop" src="strategy-map.jpg" alt="Map of field and alliance stations." onclick = "showPointsT(); coordinatesT()"/>
-        </div>
-
-
-        <div class = "points" id = "pointsT">
-          <div id = "titlesT">
-            <p id = "scored-titleT">#scored: </p>
-            <p id = "attempted-titleT">#attempted:</p>
-          </div>
-          <div class = "point-goals" id = "inner-pointsT">
-            <p class = "scoring-titles" id = "inner-titleT">Inner:</p>
-            <div class = "scored">
-              <div class="value-button" id="decreaseT" onclick="decreaseValueT()" value="Decrease Value">-</div>
-              <input type="number" id="numberT" value="0" />
-              <div class="value-button" id="increaseT" onclick="increaseValueT()" value="Increase Value">+</div>
-            </div>
-            <div class = "attempted">
-              <div class="value-button" id="decreaseT" onclick="decreaseValue2T()" value="Decrease Value">-</div>
-              <input type="number" id="number2T" value="0" />
-              <div class="value-button" id="increaseT" onclick="increaseValue2T()" value="Increase Value">+</div>
-            </div>
-          </div>
-          
-          <div class = "point-goals" id = "outer-pointsT">
-            <p class = "scoring-titles" id = "outer-titleT">Outer:</p>
-            <div class = "scored">
-              <div class="value-button" id="decreaseT" onclick="decreaseValue3T()" value="Decrease Value">-</div>
-              <input type="number" id="number3T" value="0" />
-              <div class="value-button" id="increaseT" onclick="increaseValue3T()" value="Increase Value">+</div>
-            </div>
-            <div class = "attempted">
-              <div class="value-button" id="decreaseT" onclick="decreaseValue4T()" value="Decrease Value">-</div>
-              <input type="number" id="number4T" value="0" />
-              <div class="value-button" id="increaseT" onclick="increaseValue4T()" value="Increase Value">+</div>
-            </div>
-          </div>
-
-          <div class = "point-goals" id = "low-pointsT">
-            <p class = "scoring-titles" id = "low-titleT">Low:</p>
-            <div class = "scored">
-              <div class="value-button" id="decreaseT" onclick="decreaseValue5T()" value="Decrease Value">-</div>
-              <input type="number" id="number5T" value="0" />
-              <div class="value-button" id="increaseT" onclick="increaseValue5T()" value="Increase Value">+</div>
-            </div>
-            <div class = "attempted">
-              <div class="value-button" id="decreaseT" onclick="decreaseValue6T()" value="Decrease Value">-</div>
-              <input type="number" id="number6T" value="0" />
-              <div class="value-button" id="increaseT" onclick="increaseValue6T()" value="Increase Value">+</div>
-            </div>
-          </div>
-
-          <div class = "coordinates">
-            <p id = "x-coord-titleT">X coordinate: </p>
-            <p id = "x-coordT">num</p>
-            <p id = "y-coord-titleT">Y coordinate: </p>
-            <p id = "y-coordT">num</p>
-          </div>
-
-          <div class = "score-saving">
-            <input id = "save-buttonT" type = "button" value = "Save" onclick = "savePointsData(); hidePoints()"></input>
-            <input id = "cancel-buttonT" type = "button" value = "Cancel" onclick = "cancelPoints(); hidePoints()"></input>
-          </div>
-        </div>
-
-        <div id = "foul-types">
-          <div class = "type-foul">
-            <p id = "trench-p">Trench: </p>
-            <div class="value-button" id="decrease" onclick="decreaseValue13T()" value="Decrease Value">-</div>
-            <input type="number" id="number13T" value="0" />
-            <div class="value-button" id="increase" onclick="increaseValue13T()" value="Increase Value">+</div>
-          </div>
-          <div class = "type-foul">
-            <p id = "pin-p">Pin: </p>
-            <div class="value-button" id="decrease" onclick="decreaseValue14T()" value="Decrease Value">-</div>
-            <input type="number" id="number14T" value="0" />
-            <div class="value-button" id="increase" onclick="increaseValue14T()" value="Increase Value">+</div>
-          </div>
-          <div class = "type-foul">
-            <p id = "human-p">Human:</p>
-            <div class="value-button" id="decrease" onclick="decreaseValue15T()" value="Decrease Value">-</div>
-            <input type="number" id="number15T" value="0" />
-            <div class="value-button" id="increase" onclick="increaseValue15T()" value="Increase Value">+</div>
-          </div>
-          <div class = "type-foul">
-            <p id = "climb-p">Touch Climb: </p>
-            <div class="value-button" id="decrease" onclick="decreaseValue16T()" value="Decrease Value">-</div>
-            <input type="number" id="number16T" value="0" />
-            <div class="value-button" id="increase" onclick="increaseValue16T()" value="Increase Value">+</div>
-          </div>
-          <div class = "type-foul">
-            <p id = "rendezvous-p">Opponents Rendezvous: </p>
-            <div class="value-button" id="decrease" onclick="decreaseValue17T()" value="Decrease Value">-</div>
-            <input type="number" id="number17T" value="0" />
-            <div class="value-button" id="increase" onclick="increaseValue17T()" value="Increase Value">+</div>
-          </div>
-          <div class = "other-fouls">
-            <p>Other Reg. Foul: <input type="text" name="Foul" size= "15"><br></p>
-            <p>Other Tech: <input type="text" name="Tech" size= "15"><br></p>
-            <p>Other Protected Zone: <input type="text" name="Zone" size= "15" ><br></p>
-          </div>
-          <div class = "save-fouls">
-            <input id = "save-foul-button" type = "button" value = "Save" onclick = "hideFoulsT()"></input>
-            <input id = "cancel-foul-button" type = "button" value = "Cancel" onclick = "hideFoulsT()"></input>
-          </div>
-        </div>
-        <div id = "control-panel">
-          <input id = "rotation" type = "button" value = "Rotation" onclick = "rotationTime()"></input>
-          <p id= "time-rot" class = "control-time">Time:</p>
-          <input id = "position" type = "button" value = "Position" onclick = "positionTime()"></input>
-          <p id = "time-pos" class = "control-time">Time:</p>
-          <input id = "save-control" type = "button" value = "Save" onclick = "hideControl()"></input>
-          <input id = "cancel-control" type = "button" value = "Cancel" onclick = "hideControl()"></input>
-        </div>
-      </div>
-
-
-
-
+      
       <div id = "endgame-page">
         <div class = "top-buttons">
           <button id = "back-button-endgame" type="button" onclick= "backToTeleopPage()"> < </button> 
@@ -413,12 +270,12 @@
         </p>
         <div class = "points">
           <label for="total-rp">Total RP:</label>
-          <input type="number" id="rp" name="total-rp" min = "0">
+          <input type="number" id="total-rp" name="total-rp" min = "0">
         </div>
         <br>
         <div class = "points">
           <label for="total-points">Total Points:</label>
-          <input type="number" id="p" name="total-points" min= "0">
+          <input type="number" id="total-points" name="total-points" min= "0">
         </div>
         <div class = "driver-rank-div">
           <p id = "driver-p">Driver Rank: </p>
@@ -433,13 +290,13 @@
           <input type="range" min="1" max="10" value="5" class="slider-ranks" id="defense-rank">
         </div>
         <div class = "defense-avoid-div">
-          <p id = "defense-avoid-p">Defense Avoidence: </p>
+          <p id = "defense-avoid-p">Defense Accidence: </p>
           <input type="range" min="1" max="10" value="5" class="slider-ranks" id="defense-avoid-rank">
         </div>
         <div class = "written-notes">
           <label for="notes">Notes:</label>
           <br>
-          <textarea rows = 5 cols = 25 name = "notes" ></textarea>
+          <textarea rows = 5 cols = 25 name = "notes" id="notes"></textarea>
         </div>
         <br>
         <input type="submit">

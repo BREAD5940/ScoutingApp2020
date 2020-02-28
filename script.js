@@ -10,6 +10,7 @@ function hideEverything(){
 function toAutoPage() {
   document.getElementById('first-page').style.display = 'none';
   document.getElementById('auto-page').style.display = 'inline-block';
+
 }
 
 //rotates the slider to be upside down from already rotated position
@@ -84,205 +85,50 @@ function closeOffLine() {
 }
 
 
-
-function increaseValue() {
-  var value = parseInt(document.getElementById('number').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById('number').value = value;
-  var value = parseInt(document.getElementById('number2').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById('number2').value = value;
-}
-
-function decreaseValue() {
-  var value = parseInt(document.getElementById('number').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? value = 1 : '';
-  value--;
-  document.getElementById('number').value = value;
-  var value = parseInt(document.getElementById('number2').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? value = 1 : '';
-  value--;
-  document.getElementById('number2').value = value;
-}
-
-function increaseValue2() {
-  var value = parseInt(document.getElementById('number2').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById('number2').value = value;
-}
-
-function decreaseValue2() {
-  var value = parseInt(document.getElementById('number2').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? value = 1 : '';
-  value--;
-  document.getElementById('number2').value = value;
-}
-
-
-function increaseValue3() {
-  var value = parseInt(document.getElementById('number3').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById('number3').value = value;
-  var value = parseInt(document.getElementById('number4').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById('number4').value = value;
-}
-
-function decreaseValue3() {
-  var value = parseInt(document.getElementById('number3').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? value = 1 : '';
-  value--;
-  document.getElementById('number3').value = value;
-  var value = parseInt(document.getElementById('number4').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? value = 1 : '';
-  value--;
-  document.getElementById('number4').value = value;
-}
-
-function increaseValue4() {
-  var value = parseInt(document.getElementById('number4').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById('number4').value = value;
-}
-
-function decreaseValue4() {
-  var value = parseInt(document.getElementById('number4').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? value = 1 : '';
-  value--;
-  document.getElementById('number4').value = value;
-}
-
-
-function increaseValue5() {
-  var value = parseInt(document.getElementById('number5').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById('number5').value = value;
-  var value = parseInt(document.getElementById('number6').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById('number6').value = value;
-}
-
-function decreaseValue5() {
-  var value = parseInt(document.getElementById('number5').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? value = 1 : '';
-  value--;
-  document.getElementById('number5').value = value;
-  var value = parseInt(document.getElementById('number6').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? value = 1 : '';
-  value--;
-  document.getElementById('number6').value = value;
-}
-
-function increaseValue6() {
-  var value = parseInt(document.getElementById('number6').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById('number6').value = value;
-}
-
-function decreaseValue6() {
-  var value = parseInt(document.getElementById('number6').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? value = 1 : '';
-  value--;
-  document.getElementById('number6').value = value;
-}
-
-function increaseValue8() {
-  var value = parseInt(document.getElementById('number8').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById('number8').value = value;
-}
-
-function decreaseValue8() {
-  var value = parseInt(document.getElementById('number8').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? value = 1 : '';
-  value--;
-  document.getElementById('number8').value = value;
-}
-
-function increaseValue9() {
-  var value = parseInt(document.getElementById('number9').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById('number9').value = value;
-}
-
-function decreaseValue9() {
-  var value = parseInt(document.getElementById('number9').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? value = 1 : '';
-  value--;
-  document.getElementById('number9').value = value;
-}
-
-
 function coordinates(){
   $(document).ready(function() {
     $("img").on("click", function(event) {
-        var x = event.pageX - this.offsetLeft;
-        var y = event.pageY - this.offsetTop;
-        document.getElementById('x-coord').innerHTML = (x);
-        document.getElementById('y-coord').innerHTML = (y);
+      const x = event.pageX - this.offsetLeft;
+      const y = event.pageY - this.offsetTop;
+      document.getElementById('x').value = (x);
+      document.getElementById('y').value = (y);
     });
 });
 }
 
 function showPoints(){
-  document.getElementById('points').style.display = 'block';
+  document.getElementById('scoring-auto').style.display = 'block';
 }
 
-function savePointsData(){
-  console.log("save points");
-  var innerScored = document.getElementById('number').value;
-  var innerAttempted = document.getElementById('number2').value;
-  var outerScored = document.getElementById('number3').value;
-  var outerAttempted = document.getElementById('number4').value;
-  var lowScored = document.getElementById('number5').value;
-  var lowAttempted = document.getElementById('number6').value;
-  var innerScoredTotal = innerScoredTotal + innerScored;
-  var innerAttemptedTotal = innerAttemptedTotal + innerAttempted;
-  var outerScoredTotal = outerScoredTotal + outerScored;
-  var outerAttemptedTotal = outerAttemptedTotal + outerAttempted;
-  var lowScoredTotal = lowScoredTotal + lowScored;
-  var lowAttemptedTotal = lowAttemptedTotal + lowAttempted;
-  console.log("Inner scored total: " + innerScoredTotal);
-  console.log("Inner attempted total: " + innerAttemptedTotal);
-  console.log("Outer scored total: " + outerScoredTotal);
-  console.log("Outer attempted total: " + outerAttemptedTotal);
-  console.log("Low scored total: " + lowScoredTotal);
-  console.log("Low attempted total: " + lowAttemptedTotal);
+function saveShotAuto(){
+  let i;
+  document.getElementById("scoring-auto").style.display='none';
+  const x = document.getElementById("x").value;
+  const y = document.getElementById("y").value;
+  const inner = document.getElementById("inner-auto").value;
+  const outer = document.getElementById("outer-auto").value;
+  const lower = document.getElementById("lower-auto").value;
+  const miss = document.getElementById("miss-auto").value;
+  const time = document.getElementById("time").value;
+  const currentWord = document.getElementById("shots").value;
+  let assembledWord = "";
+  for(i = 0; i<inner; i++){
+    assembledWord = assembledWord + "{("+x+","+y+");INNER;"+time+"},";
+  }
+  for(i = 0; i<outer; i++){
+    assembledWord = assembledWord + "{("+x+","+y+");OUTER;"+time+"},";
+  }
+  for(i = 0; i<lower; i++){
+    assembledWord = assembledWord + "{("+x+","+y+");LOWER;"+time+"},";
+  }
+  for(i = 0; i<miss; i++){
+    assembledWord = assembledWord + "{("+x+","+y+");MISS;"+time+"},";
+  }
+  document.getElementById("shots").value = currentWord+assembledWord;
 }
 
 function hidePoints(){
-  document.getElementById('points').style.display = 'none';
-}
-
-function cancelPoints(){
-  document.getElementById('number').value = (0);
-  document.getElementById('number2').value = (0);
-  document.getElementById('number3').value = (0);
-  document.getElementById('number4').value = (0);
-  document.getElementById('number5').value = (0);
-  document.getElementById('number6').value = (0);
+  document.getElementById('scoring-auto').style.display = 'none';
 }
 
 function showFouls(){
@@ -340,231 +186,6 @@ function flipField() {
   } else {
     field.style.transform = 'rotate(180deg)';
   }
-}
-
-
-function increaseValueT() {
-  var value = parseInt(document.getElementById('numberT').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById('numberT').value = value;
-  var value = parseInt(document.getElementById('number2T').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById('number2T').value = value;
-}
-
-function decreaseValueT() {
-  var value = parseInt(document.getElementById('numberT').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? value = 1 : '';
-  value--;
-  document.getElementById('numberT').value = value;
-  var value = parseInt(document.getElementById('number2T').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? value = 1 : '';
-  value--;
-  document.getElementById('number2T').value = value;
-}
-
-function increaseValue2T() {
-  var value = parseInt(document.getElementById('number2T').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById('number2T').value = value;
-}
-
-function decreaseValue2T() {
-  var value = parseInt(document.getElementById('number2T').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? value = 1 : '';
-  value--;
-  document.getElementById('number2T').value = value;
-}
-
-
-function increaseValue3T() {
-  var value = parseInt(document.getElementById('number3T').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById('number3T').value = value;
-  var value = parseInt(document.getElementById('number4T').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById('number4T').value = value;
-}
-
-function decreaseValue3T() {
-  var value = parseInt(document.getElementById('number3T').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? value = 1 : '';
-  value--;
-  document.getElementById('number3T').value = value;
-  var value = parseInt(document.getElementById('number4T').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? value = 1 : '';
-  value--;
-  document.getElementById('number4T').value = value;
-}
-
-function increaseValue4T() {
-  var value = parseInt(document.getElementById('number4T').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById('number4T').value = value;
-}
-
-function decreaseValue4T() {
-  var value = parseInt(document.getElementById('number4T').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? value = 1 : '';
-  value--;
-  document.getElementById('number4T').value = value;
-}
-
-
-function increaseValue5T() {
-  var value = parseInt(document.getElementById('number5T').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById('number5T').value = value;
-  var value = parseInt(document.getElementById('number6T').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById('number6T').value = value;
-}
-
-function decreaseValue5T() {
-  var value = parseInt(document.getElementById('number5T').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? value = 1 : '';
-  value--;
-  document.getElementById('number5T').value = value;
-  var value = parseInt(document.getElementById('number6T').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? value = 1 : '';
-  value--;
-  document.getElementById('number6T').value = value;
-}
-
-function increaseValue6T() {
-  var value = parseInt(document.getElementById('number6T').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById('number6T').value = value;
-}
-
-function decreaseValue6T() {
-  var value = parseInt(document.getElementById('number6T').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? value = 1 : '';
-  value--;
-  document.getElementById('number6T').value = value;
-}
-
-function increaseValue8T() {
-  var value = parseInt(document.getElementById('number8T').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById('number8T').value = value;
-}
-
-function decreaseValue8T() {
-  var value = parseInt(document.getElementById('number8T').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? value = 1 : '';
-  value--;
-  document.getElementById('number8T').value = value;
-}
-
-function increaseValue9T() {
-  var value = parseInt(document.getElementById('number9T').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById('number9T').value = value;
-}
-
-function decreaseValue9T() {
-  var value = parseInt(document.getElementById('number9T').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? value = 1 : '';
-  value--;
-  document.getElementById('number9T').value = value;
-}
-
-function increaseValue13T() {
-  var value = parseInt(document.getElementById('number13T').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById('number13T').value = value;
-}
-
-function decreaseValue13T() {
-  var value = parseInt(document.getElementById('number13T').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? value = 1 : '';
-  value--;
-  document.getElementById('number13T').value = value;
-}
-
-function increaseValue14T() {
-  var value = parseInt(document.getElementById('number14T').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById('number14T').value = value;
-}
-
-function decreaseValue14T() {
-  var value = parseInt(document.getElementById('number14T').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? value = 1 : '';
-  value--;
-  document.getElementById('number14T').value = value;
-}
-
-function increaseValue15T() {
-  var value = parseInt(document.getElementById('number15T').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById('number15T').value = value;
-}
-
-function decreaseValue15T() {
-  var value = parseInt(document.getElementById('number15T').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? value = 1 : '';
-  value--;
-  document.getElementById('number15T').value = value;
-}
-
-function increaseValue16T() {
-  var value = parseInt(document.getElementById('number16T').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById('number16T').value = value;
-}
-
-function decreaseValue16T() {
-  var value = parseInt(document.getElementById('number16T').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? value = 1 : '';
-  value--;
-  document.getElementById('number16T').value = value;
-}
-
-function increaseValue17T() {
-  var value = parseInt(document.getElementById('number17T').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById('number17T').value = value;
-}
-
-function decreaseValue17T() {
-  var value = parseInt(document.getElementById('number17T').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? value = 1 : '';
-  value--;
-  document.getElementById('number17T').value = value;
 }
 
 function coordinatesT(){
@@ -660,6 +281,10 @@ function stageTwoTime(){
 function stageThreeTime(){
   var d = new Date();
   console.log(d.getTime());
+}
+
+function showStagesAuto(){
+  document.getElementById("stages-auto").style.display = 'block';
 }
 
 function showStages(){
