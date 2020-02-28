@@ -94,11 +94,11 @@ img{
 }
 
 input:checked + .slider {
-  background-color: #1023b2;
+  background-color: #FF2828;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #1023b2;
+  box-shadow: 0 0 1px #FF2828;
 }
 
 input:checked + .slider:before {
