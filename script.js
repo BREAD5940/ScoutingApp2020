@@ -288,13 +288,6 @@ defAvoidSlider.onchange = function () {
     outputDefAvoid.innerHTML = getName(defAvoidSlider.value);
 };
 
-
-
-function reset() {
-    hideEverything();
-    document.getElementById('first-page').style.display = 'block';
-}
-
 function startClimb() {
     document.getElementById('climb-start').value = Date.now();
     document.getElementById('begin-climb').innerHTML = "BEGUN";
@@ -303,9 +296,4 @@ function startClimb() {
 function endClimb() {
     document.getElementById('climb-end').value = Date.now();
     document.getElementById('stop-climb').innerHTML = "COMPLETED";
-}
-
-function handleSubmit() {
-
-
 }
