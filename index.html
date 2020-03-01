@@ -92,25 +92,28 @@
                 <div class="selector">
 
                     <input class="num" type="number" name="inner" id="inner" value="0">
-                    <input type="button" value="+" onclick="inc('inner')">
+                    <input type="button" class="incButton" value="+" onclick="inc('inner')">
                 </div>
             </div>
             <div id="outer-bloc" class="shot-bloc">
                 <label for="outer">Outer: </label>
 
                 <input class="num" type="number" name="outer" id="outer" value="0">
+                <input type="button" class="incButton" value="+" onclick="inc('outer')">
 
             </div>
             <div id="lower-bloc" class="shot-bloc">
                 <label for="lower">Lower: </label>
 
                 <input class="num" type="number" name="lower" id="lower" value="0">
+                <input type="button" class="incButton" value="+" onclick="inc('lower')">
 
             </div>
             <div id="miss-bloc" class="shot-bloc">
                 <label for="miss">Miss: </label>
 
                 <input class="num" type="number" name="miss" id="miss" value="0">
+                <input type="button" class="incButton" value="+" onclick="inc('miss')">
 
             </div>
             <br>
@@ -122,48 +125,56 @@
                 <label for="trench">Trench: </label>
 
                 <input class="num" type="number" name="trench" id="trench" value="0">
+                <input type="button" class="incButton" value="+" onclick="inc('trench')">
 
             </div>
             <div class="type-foul">
                 <label for="pin">Pin: </label>
 
                 <input class="num" type="number" name="pin" id="pin" value="0">
+                <input type="button" class="incButton" value="+" onclick="inc('pin')">
 
             </div>
             <div class="type-foul">
                 <label for="human">Human:</label>
 
                 <input class="num" type="number" name="human" id="human" value="0">
+                <input type="button" class="incButton" value="+" onclick="inc('human')">
 
             </div>
             <div class="type-foul">
                 <label for="touch">Touch Climb: </label>
 
                 <input class="num" type="number" name="touch" id="touch" value="0">
+                <input type="button" class="incButton" value="+" onclick="inc('touch')">
 
             </div>
             <div class="type-foul">
                 <label for="rdz">Opponents Rendezvous: </label>
 
                 <input class="num" type="number" name="rdz" id="rdz" value="0">
+                <input type="button" class="incButton" value="+" onclick="inc('rdz')">
 
             </div>
             <div class="type-foul">
                 <label for="protecc">Protected Zones: </label>
 
                 <input class="num" type="number" name="protecc" id="protecc" value="0">
+                <input type="button" class="incButton" value="+" onclick="inc('protecc')">
 
             </div>
             <div class="type-foul">
                 <label for="tech">Other Techs: </label>
 
                 <input class="num" type="number" name="tech" id="tech" value="0">
+                <input type="button" class="incButton" value="+" onclick="inc('tech')">
 
             </div>
             <div class="type-foul">
                 <label for="foul">Other Fouls: </label>
 
                 <input class="num" type="number" name="foul" id="foul" value="0">
+                <input type="button" class="incButton" value="+" onclick="inc('foul')">
 
             </div>
             <br>
@@ -317,7 +328,7 @@
             <h2 id="defense-avoid-p">Defense Avoidance: </h2>
             <input type="range" min="0" max="5" value="0" class="slider-ranks" id="defense-avoid-rank" name="defAvoidRank">
             <h4 id="display-defavoid" style="text-align:left;"></h4>
-            <p id="info-antidef"></p>
+            <p id="info-defavoid"></p>
         </div>
         <div class="written-notes">
             <label for="notes">Notes:</label>

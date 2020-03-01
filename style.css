@@ -711,3 +711,14 @@ button{
 #start-slide > span.ui-slider-handle{
   background-color: #4F0E11 !important;
 }
+
+.incButton {
+  padding: 5px 10px 5px 10px;
+  margin: 5px;
+  border-radius: 50%;
+  border-style: none;
+  background-color: #c32621;
+  text-align: center;
+  color: #dddddd;
+  font-size: 200%;
+}

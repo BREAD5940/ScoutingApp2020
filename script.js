@@ -224,15 +224,15 @@ var infoBoxDrive = document.getElementById("info-drive");
 
 var hpSlider  = document.getElementById("player-rank");
 var outputHP = document.getElementById("display-hp");
-var infoBoxHP = document.getElementById("info-drive");
+var infoBoxHP = document.getElementById("info-hp");
 
 var defSlider = document.getElementById("defense-rank");
 var outputDef = document.getElementById("display-def");
-var infoBoxDef = document.getElementById("info-drive");
+var infoBoxDef = document.getElementById("info-def");
 
 var defAvoidSlider = document.getElementById("defense-avoid-rank");
 var outputDefAvoid = document.getElementById("display-defavoid");
-var infoBoxDefAvoid = document.getElementById("info-drive");
+var infoBoxDefAvoid = document.getElementById("info-defavoid");
 
 function setup(){
     outputDrive.innerHTML = getName(driverSlider.value);
@@ -312,13 +312,13 @@ function getTextDefAvoid(slideVal) {
     if (slideVal === "1") {
         var toReturn = "Completely shut down by a not-very-good defender.";
     } else if (slideVal === "2") {
-        var toReturn = "";
+        var toReturn = "Seems lost on what to do when defended, but manages to score a few.";
     } else if (slideVal === "3") {
-        var toReturn = "";
+        var toReturn = "Slight trouble getting around defenders, but does ok.";
     } else if (slideVal === "4") {
-        var toReturn = "";
+        var toReturn = "Has a few struggles getting around, but then manages to avoid defenders well.";
     } else if (slideVal === "5") {
-        var toReturn = "";
+        var toReturn = "Defense doesn't break their stride; little-to-no impact on scoring.";
     }
     return toReturn;
 }
@@ -336,12 +336,12 @@ hpSlider.onchange = function () {
 
 defSlider.onchange = function () {
     outputDef.innerHTML = getName(defSlider.value);
-    infoBoxDef.innerHTML = getTextDrive(defSlider.value);
+    infoBoxDef.innerHTML = getTextDef(defSlider.value);
 };
 
 defAvoidSlider.onchange = function () {
     outputDefAvoid.innerHTML = getName(defAvoidSlider.value);
-    infoBoxDefAvoid.innerHTML = getTextDrive(defAvoidSlider.value);
+    infoBoxDefAvoid.innerHTML = getTextDefAvoid(defAvoidSlider.value);
 };
 
 function startClimb() {
