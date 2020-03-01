@@ -353,3 +353,7 @@ function endClimb() {
     document.getElementById('climb-end').value = Date.now();
     document.getElementById('stop-climb').innerHTML = "COMPLETED";
 }
+
+function inc(elementID){
+    document.getElementById(elementID).value = Number(document.getElementById(elementID).value) +Number(1);
+}

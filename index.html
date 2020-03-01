@@ -92,7 +92,7 @@
                 <div class="selector">
 
                     <input class="num" type="number" name="inner" id="inner" value="0">
-
+                    <input type="button" value="+" onclick="inc('inner')">
                 </div>
             </div>
             <div id="outer-bloc" class="shot-bloc">
@@ -338,10 +338,10 @@
         fetch(scriptURL, {method: 'POST', body: new FormData(form)})
             .then(response => console.log('Success!', response))
             .catch(error => console.error('Error!', error.message));
-        form.reset();
         hideEverything();
+        form.reset();
         document.getElementById('first-page').style.display = 'block';
-    };
+    });
 </script>
 <script src="script.js"></script>
 </body>
