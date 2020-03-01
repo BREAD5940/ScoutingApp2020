@@ -224,19 +224,25 @@ var infoBoxDrive = document.getElementById("info-drive");
 
 var hpSlider  = document.getElementById("player-rank");
 var outputHP = document.getElementById("display-hp");
+var infoBoxHP = document.getElementById("info-drive");
 
 var defSlider = document.getElementById("defense-rank");
 var outputDef = document.getElementById("display-def");
+var infoBoxDef = document.getElementById("info-drive");
 
-var defAvoidSlider = document.getElementById("defense-avoid-rank")
+var defAvoidSlider = document.getElementById("defense-avoid-rank");
 var outputDefAvoid = document.getElementById("display-defavoid");
+var infoBoxDefAvoid = document.getElementById("info-drive");
 
 function setup(){
     outputDrive.innerHTML = getName(driverSlider.value);
-    // infoBoxDrive.innerHTML = getText(driverSlider.value);
+    infoBoxDrive.innerHTML = getTextDrive(driverSlider.value);
     outputHP.innerHTML = getName(hpSlider.value);
+    infoBoxHP.innerHTML = getTextDrive(hpSlider.value);
     outputDef.innerHTML = getName(defSlider.value);
+    infoBoxDef.innerHTML = getTextDrive(defSlider.value);
     outputDefAvoid.innerHTML = getName(defAvoidSlider.value);
+    infoBoxDefAvoid.innerHTML = getTextDrive(defAvoidSlider.value);
 
 }
 
@@ -251,11 +257,13 @@ function getName(slideVal) {
         var toReturn = "4 Above Average ";
     } else if (slideVal === "5") {
         var toReturn = "5 Excellent ";
+    } else {
+        var toReturn = "0 N/A ";
     }
     return toReturn;
 }
 
-function getText(slideVal) {
+function getTextDrive(slideVal) {
     if (slideVal === "1") {
         var toReturn = "Drove poorly, hindered allies, looks lost, can't achieve objectives, start-and-stop motion, looses control.";
     } else if (slideVal === "2") {
@@ -270,22 +278,70 @@ function getText(slideVal) {
     return toReturn;
 }
 
+function getTextHP(slideVal) {
+    if (slideVal === "1") {
+        var toReturn = "Got a ton of fouls. Doesn't supply cells to alliance robots.";
+    } else if (slideVal === "2") {
+        var toReturn = "No fouls, but ignores alliance robots.";
+    } else if (slideVal === "3") {
+        var toReturn = "Unnoticeable, neither good nor bad.";
+    } else if (slideVal === "4") {
+        var toReturn = "Robot uses the human player heavily, still no errors.";
+    } else if (slideVal === "5") {
+        var toReturn = "Strategically dumps cargo to minimize opponent usage.";
+    }
+    return toReturn;
+}
+
+function getTextDef(slideVal) {
+    if (slideVal === "1") {
+        var toReturn = "Hinders own alliance. Completely inefficient.";
+    } else if (slideVal === "2") {
+        var toReturn = "Fairly inefficient, but at least inconveniences opposing alliance.";
+    } else if (slideVal === "3") {
+        var toReturn = "Average defense, generally gets in the way and slows down opposition.";
+    } else if (slideVal === "4") {
+        var toReturn = "Pretty good, blocks a couple shots and gets in the way.";
+    } else if (slideVal === "5") {
+        var toReturn = "Amazing, completely shuts down at least one opposing robot.";
+    }
+    return toReturn;
+}
+
+function getTextDefAvoid(slideVal) {
+    if (slideVal === "1") {
+        var toReturn = "Completely shut down by a not-very-good defender.";
+    } else if (slideVal === "2") {
+        var toReturn = "";
+    } else if (slideVal === "3") {
+        var toReturn = "";
+    } else if (slideVal === "4") {
+        var toReturn = "";
+    } else if (slideVal === "5") {
+        var toReturn = "";
+    }
+    return toReturn;
+}
+
 // Update the current slider value (each time you drag the slider handle)
 driverSlider.onchange = function () {
     outputDrive.innerHTML = getName(driverSlider.value);
-    // infoBoxDrive.innerHTML = getText(driverSlider.value);
+    infoBoxDrive.innerHTML = getTextDrive(driverSlider.value);
 };
 
 hpSlider.onchange = function () {
     outputHP.innerHTML = getName(hpSlider.value);
+    infoBoxHP.innerHTML = getTextHP(hpSlider.value);
 };
 
 defSlider.onchange = function () {
     outputDef.innerHTML = getName(defSlider.value);
+    infoBoxDef.innerHTML = getTextDrive(defSlider.value);
 };
 
 defAvoidSlider.onchange = function () {
     outputDefAvoid.innerHTML = getName(defAvoidSlider.value);
+    infoBoxDefAvoid.innerHTML = getTextDrive(defAvoidSlider.value);
 };
 
 function startClimb() {

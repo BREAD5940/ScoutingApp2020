@@ -95,21 +95,18 @@
 
                 </div>
             </div>
-            <br>
             <div id="outer-bloc" class="shot-bloc">
                 <label for="outer">Outer: </label>
 
                 <input class="num" type="number" name="outer" id="outer" value="0">
 
             </div>
-            <br>
             <div id="lower-bloc" class="shot-bloc">
                 <label for="lower">Lower: </label>
 
                 <input class="num" type="number" name="lower" id="lower" value="0">
 
             </div>
-            <br>
             <div id="miss-bloc" class="shot-bloc">
                 <label for="miss">Miss: </label>
 
@@ -117,7 +114,7 @@
 
             </div>
             <br>
-            <input type="button" id="save-shot" onClick="saveShot()">Save</inout>
+            <input type="button" id="save-shot" onClick="saveShot()" value="Save"/>
         </div>
 
         <div id="fouls" class="popup">
@@ -127,49 +124,42 @@
                 <input class="num" type="number" name="trench" id="trench" value="0">
 
             </div>
-            <br>
             <div class="type-foul">
                 <label for="pin">Pin: </label>
 
                 <input class="num" type="number" name="pin" id="pin" value="0">
 
             </div>
-            <br>
             <div class="type-foul">
                 <label for="human">Human:</label>
 
                 <input class="num" type="number" name="human" id="human" value="0">
 
             </div>
-            <br>
             <div class="type-foul">
                 <label for="touch">Touch Climb: </label>
 
                 <input class="num" type="number" name="touch" id="touch" value="0">
 
             </div>
-            <br>
             <div class="type-foul">
                 <label for="rdz">Opponents Rendezvous: </label>
 
                 <input class="num" type="number" name="rdz" id="rdz" value="0">
 
             </div>
-            <br>
             <div class="type-foul">
                 <label for="protecc">Protected Zones: </label>
 
                 <input class="num" type="number" name="protecc" id="protecc" value="0">
 
             </div>
-            <br>
             <div class="type-foul">
                 <label for="tech">Other Techs: </label>
 
                 <input class="num" type="number" name="tech" id="tech" value="0">
 
             </div>
-            <br>
             <div class="type-foul">
                 <label for="foul">Other Fouls: </label>
 
@@ -177,7 +167,7 @@
 
             </div>
             <br>
-            <input type="button" id="save-fouls" onClick="hideFouls()">Save</input>
+            <input type="button" id="save-fouls" onClick="hideFouls()" value="Save" />
         </div>
         <div id="stages" class="popup">
             <div>
@@ -263,7 +253,7 @@
 
     <div id="note-page">
         <div class="top">
-            <button id="backToEndgame()" type="button" onclick="backToEndgame()"><</button>
+            <button id="backToEndgame" type="button" onclick="backToEndgame()"><</button>
             <h1 id="notes-title">Notes</h1>
         </div>
         <p id="e-stop">E-Stop:
@@ -307,24 +297,27 @@
         </div>
         <div class="driver-rank-div">
             <h2 id="driver-p">Driver Rank: </h2>
-            <input type="range" min="1" max="5" value="1" class="slider-ranks" id="driver-rank" name="driveRank">
+            <input type="range" min="0" max="5" value="0" class="slider-ranks" id="driver-rank" name="driveRank">
             <h4 id="display-drive" style="text-align:left;"></h4>
             <p id="info-drive"></p>
         </div>
         <div class="human-rank-div">
             <h2 id="human-p">Human Player Rank: </h2>
-            <input type="range" min="1" max="5" value="1" class="slider-ranks" id="player-rank" name="playRank">
+            <input type="range" min="0" max="5" value="0" class="slider-ranks" id="player-rank" name="playRank">
             <h4 id="display-hp" style="text-align:left;"></h4>
+            <p id="info-hp"></p>
         </div>
         <div class="defense-rank-div">
             <h2 id="defense-p">Defense: </h2>
-            <input type="range" min="1" max="5" value="1" class="slider-ranks" id="defense-rank" name="defRank">
+            <input type="range" min="0" max="5" value="0" class="slider-ranks" id="defense-rank" name="defRank">
             <h4 id="display-def" style="text-align:left;"></h4>
+            <p id="info-def"></p>
         </div>
         <div class="defense-avoid-div">
             <h2 id="defense-avoid-p">Defense Avoidance: </h2>
-            <input type="range" min="1" max="5" value="1" class="slider-ranks" id="defense-avoid-rank" name="defAvoidRank">
+            <input type="range" min="0" max="5" value="0" class="slider-ranks" id="defense-avoid-rank" name="defAvoidRank">
             <h4 id="display-defavoid" style="text-align:left;"></h4>
+            <p id="info-antidef"></p>
         </div>
         <div class="written-notes">
             <label for="notes">Notes:</label>
