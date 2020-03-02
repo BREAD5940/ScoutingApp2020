@@ -649,11 +649,6 @@ form #input-wrap {
   text-align: center;
 }
 
-#backToEndgame{
-  height: 10px;
-  margin-top: 10px;
-}
-
 #notes{
   height: 200px;
   width: 80%;
@@ -691,6 +686,15 @@ input[class=num]{
 
 
 button{
+  border-radius: 10%;
+  background-color: #97484C;
+  border-style: none;
+  padding: 5px 15px 5px 15px;
+  text-align: center;
+  color: #dddddd;
+}
+
+#backToEndgame{
   border-radius: 10%;
   background-color: #97484C;
   border-style: none;

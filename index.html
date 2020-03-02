@@ -11,6 +11,7 @@
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>-->
 <!--<script src="script.js"></script>-->
 <form id="form" name="form" >
+    <input type="hidden" class="hidden" id="img-size" name="img-size"/>
     <input type="hidden" class="hidden" id="start-time" name="start-time"/>
     <input type="hidden" class="hidden" id="shots" name="shots" value="">
     <input type="hidden" class="hidden" id="climb-start" name="climb-start">
@@ -264,7 +265,7 @@
 
     <div id="note-page">
         <div class="top">
-            <button id="backToEndgame" type="button" onclick="backToEndgame()"><</button>
+            <input id="backToEndgame" type="button" onclick="backToEnd()" value="<"/>
             <h1 id="notes-title">Notes</h1>
         </div>
         <p id="e-stop">E-Stop:
@@ -349,9 +350,8 @@
         fetch(scriptURL, {method: 'POST', body: new FormData(form)})
             .then(response => console.log('Success!', response))
             .catch(error => console.error('Error!', error.message));
-        hideEverything();
         form.reset();
-        document.getElementById('first-page').style.display = 'block';
+        location.reload();
     });
 </script>
 <script src="script.js"></script>

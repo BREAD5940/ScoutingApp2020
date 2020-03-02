@@ -118,6 +118,8 @@ function saveShot() {
     const lower = document.getElementById("lower").value;
     const miss = document.getElementById("miss").value;
     const time = document.getElementById("time").value;
+    const imgHeight = document.getElementById("field-image").clientHeight;
+    const imgWidth = document.getElementById("field-image").clientWidth;
     const currentWord = document.getElementById("shots").value;
     let assembledWord = "";
     for (i = 0; i < inner; i++) {
@@ -141,6 +143,7 @@ function saveShot() {
     document.getElementById("miss").value = 0;
     document.getElementById("time").value = 0;
     document.getElementById("shots").value = currentWord + assembledWord;
+    document.getElementById("img-size").value = "{"+imgWidth+","+imgHeight+"}";
     document.getElementById("scoring").style.display = 'none';
 }
 
@@ -213,8 +216,8 @@ function toNotesPage() {
     document.getElementById('endgame-page').style.display = 'none';
 }
 
-function backToEndgame() {
-    document.getElementById('endgame-page').style.display = 'inline-block';
+function backToEnd() {
+    document.getElementById('endgame-page').style.display = 'block';
     document.getElementById('note-page').style.display = 'none';
 }
 
