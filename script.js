@@ -1,8 +1,8 @@
 function hideEverything() {
+    document.getElementById('note-page').style.display = 'none';
     document.getElementById('game-page').style.display = 'none';
     document.getElementById('endgame-page').style.display = 'none';
-    document.getElementById('stages').style.display = 'none';
-    document.getElementById('note-page').style.display = 'none';
+
 }
 
 /*start button to switch to game page*/
@@ -13,7 +13,6 @@ function toGamePage() {
     document.getElementById('off-line').style.display = 'none';
     document.getElementById('scoring').style.display = 'none';
     document.getElementById('fouls').style.display = 'none';
-    document.getElementById('stages').style.display = 'none';
 
 }
 

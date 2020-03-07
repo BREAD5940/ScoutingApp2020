@@ -10,7 +10,7 @@
 <body onload="hideEverything(); setup()">
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>-->
 <!--<script src="script.js"></script>-->
-<form id="form" name="form" >
+<form id="form" name="form">
     <input type="hidden" class="hidden" id="img-size" name="img-size"/>
     <input type="hidden" class="hidden" id="start-time" name="start-time"/>
     <input type="hidden" class="hidden" id="shots" name="shots" value="">
@@ -25,11 +25,11 @@
     <div id="first-page">
         <h1>BREAD Scouting</h1>
         <div class="basic-info">
-            <p>Name: <input type="text" name="Name" size="15" ><br></p>
-            <p>Team #: <input type="text" name="Team#" size="14" ><br></p>
-            <p>Match #: <input type="text" name="Match#" size="13" ><br></p>
+            <p>Name: <input type="text" name="Name" size="15"><br></p>
+            <p>Team #: <input type="text" name="Team#" size="14"><br></p>
+            <p>Match #: <input type="text" name="Match#" size="13"><br></p>
             <p>Alliance Station:
-                <select name="Alliance-station" >
+                <select name="Alliance-station">
                     <option value="Red1">Red 1</option>
                     <option value="Red2">Red 2</option>
                     <option value="Red3">Red 3</option>
@@ -54,7 +54,8 @@
         <div class="start-position-slide">
             <p id="sp-sector">Sector</p>
             <br>
-            <input name="startPostion" type="range" min="1" max="100" value="50" class="slider-position" id="start-slide">
+            <input name="startPostion" type="range" min="1" max="100" value="50" class="slider-position"
+                   id="start-slide">
             <br>
             <p id="sp-generator">Shield <br> Generator</p>
         </div>
@@ -179,32 +180,32 @@
 
             </div>
             <br>
-            <input type="button" id="save-fouls" onClick="hideFouls()" value="Save" />
+            <input type="button" id="save-fouls" onClick="hideFouls()" value="Save"/>
         </div>
-        <div id="stages" class="popup">
-            <div>
-                <label for="stage-one">Stage 1 Capacity: </label>
-                <input id="stage-one" type="button" value="1" onclick="stageOneTime()"/>
-            </div>
-            <br>
-            <div>
-                <label for="stage-two">Stage 2 Capacity: </label>
-                <input id="stage-two" type="button" value="2" onclick="stageTwoTime()"/>
-            </div>
-            <br>
-            <div>
-                <label for="stage-three">Stage 3 Capacity: </label>
-                <input id="stage-three" type="button" value="3" onclick="stageThreeTime()"/>
-            </div>
-            <br>
+<!--        <div id="stages" class="popup">-->
+<!--            <div>-->
+<!--                <label for="stage-one">Stage 1 Capacity: </label>-->
+<!--                <input id="stage-one" type="button" value="1" onclick="stageOneTime()"/>-->
+<!--            </div>-->
+<!--            <br>-->
+<!--            <div>-->
+<!--                <label for="stage-two">Stage 2 Capacity: </label>-->
+<!--                <input id="stage-two" type="button" value="2" onclick="stageTwoTime()"/>-->
+<!--            </div>-->
+<!--            <br>-->
+<!--            <div>-->
+<!--                <label for="stage-three">Stage 3 Capacity: </label>-->
+<!--                <input id="stage-three" type="button" value="3" onclick="stageThreeTime()"/>-->
+<!--            </div>-->
+<!--            <br>-->
 
-            <input id="save-stages" type="button" value="Close" onclick="hideStages()"/>
-        </div>
-        <div id="control-panel">
-            <button type="button" id="rotation" onclick="rotationTime()">Rotation</button>
-            <button type="button" id="position" onclick="positionTime()">Position</button>
-            <button type="button" id="close-control" onclick="hideControl()">Close</button>
-        </div>
+<!--            <input id="save-stages" type="button" value="Close" onclick="hideStages()"/>-->
+<!--        </div>-->
+<!--        <div id="control-panel">-->
+<!--            <button type="button" id="rotation" onclick="rotationTime()">Rotation</button>-->
+<!--            <button type="button" id="position" onclick="positionTime()">Position</button>-->
+<!--            <button type="button" id="close-control" onclick="hideControl()">Close</button>-->
+<!--        </div>-->
         <div class="image">
             <img id="field-image" src="strategy-map.jpg" alt="Map of field and alliance stations."
                  onclick="showPoints(); coordinates()"/>
@@ -327,7 +328,8 @@
         </div>
         <div class="defense-avoid-div">
             <h2 id="defense-avoid-p">Defense Avoidance: </h2>
-            <input type="range" min="0" max="5" value="0" class="slider-ranks" id="defense-avoid-rank" name="defAvoidRank">
+            <input type="range" min="0" max="5" value="0" class="slider-ranks" id="defense-avoid-rank"
+                   name="defAvoidRank">
             <h4 id="display-defavoid" style="text-align:left;"></h4>
             <p id="info-defavoid"></p>
         </div>
@@ -341,19 +343,20 @@
     </div>
 
 </form>
-
 <script>
     const scriptURL = 'https://script.google.com/macros/s/AKfycbwRHIPRHp5KN5BAshpQJH4OF1tK960U10v0S5-z2555FLDJ9o8/exec';
     const form = document.forms['form'];
     form.addEventListener('submit', e => {
         e.preventDefault();
-        fetch(scriptURL, {method: 'POST', body: new FormData(form)})
+        fetchYes(scriptURL, {method: 'POST', body: new FormData(form)})
             .then(response => console.log('Success!', response))
             .catch(error => console.error('Error!', error.message));
         form.reset();
         location.reload();
     });
 </script>
+<script src='fetch.umd.js'></script>
 <script src="script.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </body>
 </html>
