@@ -349,9 +349,11 @@
 <script>
     const scriptURL = 'https://script.google.com/macros/s/AKfycbwRHIPRHp5KN5BAshpQJH4OF1tK960U10v0S5-z2555FLDJ9o8/exec';
     const form = document.forms['form'];
+    var myHeaders = new Headers();
+    myHeaders.append('Access-Control-Allow-Origin', '*');
     form.addEventListener('submit', e => {
         e.preventDefault();
-        fetch(scriptURL, {method: 'POST', body: new FormData(form)})
+        fetch(scriptURL, {method: 'POST', body: new FormData(form), headers: myHeaders})
             .then(response => console.log('Success!', response))
             .catch(error => console.error('Error!', error.message));
         form.reset();
