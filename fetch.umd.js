@@ -444,7 +444,7 @@
     exports.DOMException.prototype.constructor = exports.DOMException;
   }
 
-  function fetchYes(input, init) {
+  function fetchY(input, init) {
     return new Promise(function(resolve, reject) {
       var request = new Request(input, init);
 
@@ -512,10 +512,10 @@
     })
   }
 
-  fetch.polyfill = true;
+  fetchY.polyfill = true;
 
   if (!self.fetch) {
-    self.fetch = fetch;
+    self.fetch = fetchY;
     self.Headers = Headers;
     self.Request = Request;
     self.Response = Response;
@@ -524,7 +524,7 @@
   exports.Headers = Headers;
   exports.Request = Request;
   exports.Response = Response;
-  exports.fetch = fetch;
+  exports.fetchY = fetchY;
 
   Object.defineProperty(exports, '__esModule', { value: true });
 

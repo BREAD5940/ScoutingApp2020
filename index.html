@@ -348,14 +348,14 @@
     const form = document.forms['form'];
     form.addEventListener('submit', e => {
         e.preventDefault();
-        fetchYes(scriptURL, {method: 'POST', body: new FormData(form)})
+        fetch(scriptURL, {method: 'POST', body: new FormData(form)})
             .then(response => console.log('Success!', response))
             .catch(error => console.error('Error!', error.message));
         form.reset();
         location.reload();
     });
 </script>
-<script src='fetch.umd.js'></script>
+<script src="fetch.umd.js"></script>
 <script src="script.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </body>
