@@ -343,8 +343,8 @@
     </div>
 
 </form>
-<script  nomodule src="fetch.umd.js"></script>
-<script src="https://polyfill.io/v3/polyfill.min.js"></scriptsrc></script>
+<!--<script  nomodule src="fetch.umd.js"></script>-->
+<!--<script src="https://polyfill.io/v3/polyfill.min.js"></scriptsrc></script>-->
 <script>
     // var fetch = import( "./fetch.umd.js");
     const scriptURL = 'https://script.google.com/macros/s/AKfycbwRHIPRHp5KN5BAshpQJH4OF1tK960U10v0S5-z2555FLDJ9o8/exec';
@@ -355,7 +355,7 @@
             return;
         }
         e.preventDefault();
-        fetch(scriptURL, {method: 'POST', body: new FormData(form), headers: {'Content-Type': 'application/json', 'Access-Control-Allow-Origin':'*'}, mode: 'cors'})
+        fetch(scriptURL, {method: 'POST', body: new FormData(form) /*headers: {'Content-Type': 'application/json', 'Access-Control-Allow-Origin':'*'}*/, mode: 'cors'})
             .then(response => console.log('Success!', response))
             .catch(error => console.error('Error!', error));
         form.reset();
