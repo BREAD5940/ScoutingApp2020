@@ -355,7 +355,7 @@
             return;
         }
         e.preventDefault();
-        fetch(scriptURL, {method: 'POST', body: new FormData(form) /*headers: {'Content-Type': 'application/json', 'Access-Control-Allow-Origin':'*'}*/, mode: 'cors'})
+        fetch(scriptURL, {method: 'POST', body: new FormData(form) /*headers: {'Content-Type': 'application/json', 'Access-Control-Allow-Origin':'*'}*/, mode: 'no-cors'})
             .then(response => console.log('Success!', response))
             .catch(error => console.error('Error!', error));
         form.reset();
