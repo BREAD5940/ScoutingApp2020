@@ -216,7 +216,7 @@ function toNotesPage() {
 }
 
 function backToEnd() {
-    document.getElementById('endgame-page').style.display = 'block';
+    document.getElementById('endgame-page').style.display = 'inline-block';
     document.getElementById('note-page').style.display = 'none';
 }
 
