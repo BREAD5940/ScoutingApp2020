@@ -343,9 +343,9 @@
     </div>
 
 </form>
-<script src="fetch.umd.js" async defer></script>
+<script  nomodule src="fetch.umd.js"></script>
 <script>
-    import 'whatwg-fetch';
+    // var fetch = import( "./fetch.umd.js");
     const scriptURL = 'https://script.google.com/macros/s/AKfycbwRHIPRHp5KN5BAshpQJH4OF1tK960U10v0S5-z2555FLDJ9o8/exec';
     const form = document.forms['form'];
     form.addEventListener('submit', e => {
@@ -354,7 +354,7 @@
             return;
         }
         e.preventDefault();
-        window.fetch(scriptURL, {method: 'POST', body: new FormData(form)})
+        fetch(scriptURL, {method: 'POST', body: new FormData(form), headers: {'Content-Type': 'application/json'}, mode: 'cors'})
             .then(response => console.log('Success!', response))
             .catch(error => console.error('Error!', error));
         form.reset();
