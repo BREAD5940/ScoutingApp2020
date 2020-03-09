@@ -11,7 +11,7 @@ public class Main {
             javalinConfig.enableCorsForAllOrigins();
         });
 
-        app.start(80);
+        app.start(5800);
 
      }
 }
