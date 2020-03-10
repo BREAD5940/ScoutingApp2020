@@ -5,7 +5,6 @@ import io.javalin.core.JavalinConfig
 import io.javalin.http.Context
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import org.apache.commons.text.StringEscapeUtils
 
 object Main {
     @JvmStatic
@@ -128,7 +127,7 @@ object Main {
     }
 
     private fun submitToGoogleForms(entries: List<String>) {
-        GoogleSheets.addData(entries)
+//        S.addData(entries)
     }
 
     fun unescape(input: String): String {
