@@ -290,7 +290,7 @@ function getTextHP(slideVal) {
     } else if (slideVal === "4") {
         var toReturn = "Robot uses the human player heavily, still no errors.";
     } else if (slideVal === "5") {
-        var toReturn = "Strategically dumps cargo to minimize opponent usage.";
+        var toReturn = "Strategically dumps lemons to minimize opponent usage.";
     }
     return toReturn;
 }
