@@ -18,7 +18,6 @@ import java.security.GeneralSecurityException
 
 
 object GoogleSheets {
-
     private const val APPLICATION_NAME = "Google Sheets API Java Quickstart"
     private val JSON_FACTORY: JsonFactory = JacksonFactory.getDefaultInstance()
     private const val TOKENS_DIRECTORY_PATH = "tokens"
@@ -30,7 +29,6 @@ object GoogleSheets {
     private val SCOPES = listOf(SheetsScopes.SPREADSHEETS_READONLY)
     private const val CREDENTIALS_FILE_PATH = "/credentials.json"
 
-
     /**
      * Creates an authorized Credential object.
      * @param HTTP_TRANSPORT The network HTTP Transport.
@@ -40,7 +38,7 @@ object GoogleSheets {
     @Throws(IOException::class)
     private fun getCredentials(HTTP_TRANSPORT: NetHttpTransport): Credential? {
         // Load client secrets.
-        val `in`: InputStream = this::class.java.getResourceAsStream(CREDENTIALS_FILE_PATH)
+        val `in`: InputStream = base.lib.SheetsFunctions::class.java.getResourceAsStream(CREDENTIALS_FILE_PATH)
                 ?: throw FileNotFoundException("Resource not found: $CREDENTIALS_FILE_PATH")
         val clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, InputStreamReader(`in`))
 
@@ -59,31 +57,48 @@ object GoogleSheets {
      * https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
      */
     @Throws(IOException::class, GeneralSecurityException::class)
-    @JvmStatic
-    fun main(args: Array<String>) {
+    fun getData(spreadsheetID_: String, tab_: String, row_: Int, finalCol_: String): List<Any>? {
         // Build a new authorized API client service.
         val HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport()
-        val spreadsheetId = "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms"
-        val range = "Class Data!A2:E"
+        val range = "$tab_!A$row_:$finalCol_$row_"
         val service = Sheets.Builder(HTTP_TRANSPORT, JSON_FACTORY, getCredentials(HTTP_TRANSPORT))
                 .setApplicationName(APPLICATION_NAME)
                 .build()
-        val response: ValueRange = service.spreadsheets().values()[spreadsheetId, range]
+        val response = service.spreadsheets().values()[spreadsheetID_, range]
                 .execute()
-        val values: List<List<Any>> = response.getValues()
-        if (values.isEmpty()) {
+        val values = response.getValues()
+        return if (values == null || values.isEmpty()) {
             println("No data found.")
+            null
         } else {
-            println("Name, Major")
-            for (row in values) {
-                // Print columns A and E, which correspond to indices 0 and 4.
-                System.out.printf("%s, %s\n", row[0], row[4])
-            }
+            values[0]
         }
     }
 
+    @Throws(IOException::class, GeneralSecurityException::class)
+    fun getHeaders(spreadsheetID_: String, tab_: String, finalCol_: String): List<Any>? {
+        return getData(spreadsheetID_, tab_, 1, finalCol_)
+    }
+
+    val spreadsheetId: String = TODO("yes")
+    val sheetName: String = TODO("yes")
+
+    @Suppress("DuplicatedCode")
     fun addData(entries: List<String>) {
-        TODO("Jocelyn gib help plz")
+        // Build a new authorized API client service.
+        val httpTransport = GoogleNetHttpTransport.newTrustedTransport()
+//        val range = "$tab_!A$row_:$finalCol_$row_"
+        val service = Sheets.Builder(httpTransport, JSON_FACTORY, getCredentials(httpTransport))
+                .setApplicationName(APPLICATION_NAME)
+                .build()
+
+        val body = ValueRange().setValues(listOf(entries))
+        val range = "'$sheetName'!A1"
+
+        val result = service.spreadsheets().values().append(spreadsheetId, range, body)
+                .setValueInputOption("RAW")
+                .setInsertDataOption("INSERT_ROWS")
+                .execute()
     }
 
 
