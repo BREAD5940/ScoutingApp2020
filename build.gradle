@@ -26,10 +26,9 @@ targetCompatibility = 1.8
 dependencies {
     compile 'io.javalin:javalin:3.7.0'
 
-    compile 'com.google.api-client:google-api-client:1.30.4'
-    compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
-    compile 'com.google.oauth-client:google-oauth-client-jetty:1.30.4'
-    compile 'com.google.apis:google-api-services-sheets:v4-rev581-1.25.0'
+    compile 'com.google.api-client:google-api-client:1.23.0'
+    compile 'com.google.oauth-client:google-oauth-client-jetty:1.23.0'
+    compile 'com.google.apis:google-api-services-sheets:v4-rev516-1.23.0'
 
     compile 'org.eclipse.jetty:jetty-server:8.2.0v20160908'
 
