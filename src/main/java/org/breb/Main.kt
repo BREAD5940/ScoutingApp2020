@@ -12,6 +12,7 @@ import java.time.Instant
 import java.util.*
 
 object Main {
+
     @JvmStatic
     fun main(args: Array<String>) {
         val app = Javalin.create { javalinConfig: JavalinConfig ->
@@ -61,6 +62,7 @@ object Main {
         val cap3Time = params["cap3Time"]
         val rotTime = params["rotTime"]
         val posTime = params["posTime"]
+        val absent = params["absent"]
         val Name = params["Name"]
         val teamNum = params["Team%23"]
         val matchNum = params["Match%23"]
@@ -74,6 +76,7 @@ object Main {
         val lower = params["lower"]
         val miss = params["miss"]
         val trench = params["trench"]
+        val offLine = params["offLine"]
         val pin = params["pin"]
         val human = params["human"]
         val touch = params["touch"]
@@ -88,6 +91,17 @@ object Main {
         val defRank = params["defRank"]
         val defAvoidRank = params["defAvoidRank"]
         val notes = params["notes"]
+        val climbSucc = params["climbSucc"]
+        val buddy = params["buddy"]
+        val assisted = params["assisted"]
+        val level = params["level"]
+        val parked = params["parked"]
+        val rp = params["rp"]
+        val estop = params["estop"]
+        val broke = params["broke"]
+        val yellow = params["yellow"]
+        val red = params["red"]
+        val dq = params["dq"]
 
         val currentTime = SimpleDateFormat("MM/dd/yyyy hh:mm:ss").apply {
             timeZone = TimeZone.getDefault()
@@ -109,7 +123,9 @@ object Main {
                 teamNum,
                 matchNum,
                 allianceStation,
+                absent,
                 startPostion,
+                offLine,
                 x,
                 y,
                 time,
@@ -120,11 +136,20 @@ object Main {
                 trench,
                 pin,
                 human,
-                touch,
-                rdz,
                 protecc,
                 tech,
                 foul,
+                climbSucc,
+                buddy,
+                assisted,
+                level,
+                parked,
+                rp,
+                estop,
+                broke,
+                yellow,
+                red,
+                dq,
                 totalRp,
                 totalPoints,
                 driveRank,
