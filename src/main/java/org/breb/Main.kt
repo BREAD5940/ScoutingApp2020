@@ -3,6 +3,9 @@ package org.breb
 import io.javalin.Javalin
 import io.javalin.core.JavalinConfig
 import io.javalin.http.Context
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import org.apache.commons.text.StringEscapeUtils
 
 object Main {
     @JvmStatic
@@ -31,9 +34,10 @@ object Main {
 
         operator fun List<String>.get(key: String): String {
             this.forEach {
-                if(it.startsWith(key)) {
+                if (it.startsWith(key)) {
                     println(it)
-                    return it.substring(key.length + 1, it.length)
+                    val subString = it.substring(key.length + 1, it.length)
+                    return unescape(subString)
                 }
             }
             return ""
@@ -77,7 +81,93 @@ object Main {
         val defAvoidRank = params["defAvoidRank"]
         val notes = params["notes"]
 
-//        println("started at $startTime")
+        GlobalScope.launch {
+            submitToGoogleForms(listOf(
+                    imgSize,
+                    startTime,
+                    shots,
+                    climbStart,
+                    climbEnd,
+                    cap1Time,
+                    cap2Time,
+                    cap3Time,
+                    rotTime,
+                    posTime,
+                    Name,
+                    teamNum,
+                    matchNum,
+                    allianceStation,
+                    startPostion,
+                    x,
+                    y,
+                    time,
+                    inner,
+                    outer,
+                    lower,
+                    miss,
+                    trench,
+                    pin,
+                    human,
+                    touch,
+                    rdz,
+                    protecc,
+                    tech,
+                    foul,
+                    totalRp,
+                    totalPoints,
+                    driveRank,
+                    playRank,
+                    defRank,
+                    defAvoidRank,
+                    notes
+            ))
+        }
+
+        println("started at $startTime")
 //        ctx.redirect("index.html")
     }
+
+    private fun submitToGoogleForms(entries: List<String>) {
+        GoogleSheets.addData(entries)
+    }
+
+    fun unescape(input: String): String {
+
+        val ret = input
+                .replace("%20", " ")
+                .replace("%21", "!")
+                .replace("%22", "\"")
+                .replace("%23", "#")
+                .replace("%24", "$")
+                .replace("%25", "%")
+                .replace("%26", "&")
+                .replace("%27", "\'")
+                .replace("%28", "(")
+                .replace("%29", ")")
+                .replace("%2A", "*")
+                .replace("%2B", "+")
+                .replace("%2C", ",")
+                .replace("%2D", "-")
+                .replace("%2E", ".")
+                .replace("%2F", "/")
+
+                .replace("%30", "0")
+                .replace("%31", "1")
+                .replace("%32", "2")
+                .replace("%33", "3")
+                .replace("%34", "4")
+                .replace("%35", "5")
+                .replace("%36", "6")
+                .replace("%37", "7")
+                .replace("%38", "8")
+                .replace("%39", "9")
+
+                .replace("%3B", ";")
+                .replace("%3F", "?")
+
+                .replace("%7B", "{")
+                .replace("%7D", "}")
+        return ret
+    }
+
 }
