@@ -1,5 +1,6 @@
 package org.breb
 
+import com.google.api.client.util.DateTime
 import io.javalin.Javalin
 import io.javalin.core.JavalinConfig
 import io.javalin.http.Context
@@ -88,9 +89,11 @@ object Main {
         val defAvoidRank = params["defAvoidRank"]
         val notes = params["notes"]
 
-        var currentTime = SimpleDateFormat("MM/dd/yyyy hh:mm:ss").format(Date.from(Instant.now()))
+        val currentTime = SimpleDateFormat("MM/dd/yyyy hh:mm:ss").apply {
+            timeZone = TimeZone.getDefault()
+        }.format(Calendar.getInstance(TimeZone.getDefault()).time)
 
-        var allData = listOf(
+        val allData = listOf(
                 currentTime,
                 imgSize,
                 startTime,
@@ -154,6 +157,7 @@ object Main {
                 .replace("%24", "$")
                 .replace("%25", "%")
                 .replace("%26", "&")
+                .replace("+", " ") // Maybe?
                 .replace("%27", "\'")
                 .replace("%28", "(")
                 .replace("%29", ")")
