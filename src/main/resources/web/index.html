@@ -10,7 +10,10 @@
 <body onload="hideEverything(); setup()">
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>-->
 <!--<script src="script.js"></script>-->
-<form id="form" name="form">
+
+<!--<form target="index.html" id="form" name="form" method="post" action="/send">-->
+
+<form target="index.html" id="form" name="form" method="post" action="/send">
     <input type="hidden" class="hidden" id="img-size" name="img-size"/>
     <input type="hidden" class="hidden" id="start-time" name="start-time"/>
     <input type="hidden" class="hidden" id="shots" name="shots" value="">
@@ -199,13 +202,13 @@
 <!--            </div>-->
 <!--            <br>-->
 
-<!--            <input id="save-stages" type="button" value="Close" onclick="hideStages()"/>-->
-<!--        </div>-->
-<!--        <div id="control-panel">-->
-<!--            <button type="button" id="rotation" onclick="rotationTime()">Rotation</button>-->
-<!--            <button type="button" id="position" onclick="positionTime()">Position</button>-->
-<!--            <button type="button" id="close-control" onclick="hideControl()">Close</button>-->
-<!--        </div>-->
+        <!--            <input id="save-stages" type="button" value="Close" onclick="hideStages()"/>-->
+        <!--        </div>-->
+        <!--        <div id="control-panel">-->
+        <!--            <button type="button" id="rotation" onclick="rotationTime()">Rotation</button>-->
+        <!--            <button type="button" id="position" onclick="positionTime()">Position</button>-->
+        <!--            <button type="button" id="close-control" onclick="hideControl()">Close</button>-->
+        <!--        </div>-->
         <div class="image">
             <img id="field-image" src="strategy-map.jpg" alt="Map of field and alliance stations."
                  onclick="showPoints(); coordinates()"/>
@@ -262,7 +265,6 @@
             </p>
         </div>
     </div>
-
 
     <div id="note-page">
         <div class="top">
@@ -345,23 +347,27 @@
 </form>
 <!--<script  nomodule src="fetch.umd.js"></script>-->
 <!--<script src="https://polyfill.io/v3/polyfill.min.js"></scriptsrc></script>-->
-<script>
-    // var fetch = import( "./fetch.umd.js");
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwLn5_ClOMM5NxS1Dfhcl_LtDziT633FNIBcIhNK8a17vBvvzEm/exec';
-    const form = document.forms['form'];
-    form.addEventListener('submit', e => {
-        if (!('fetch' in window)) {
-            console.log('Fetch API not found, try including the polyfill');
-            return;
-        }
-        e.preventDefault();
-        fetch(scriptURL, {method: 'POST', body: new FormData(form) /*headers: {'Content-Type': 'application/json', 'Access-Control-Allow-Origin':'*'}*/, mode: 'no-cors'})
-            .then(response => console.log('Success!', response))
-            .catch(error => console.error('Error!', error));
-        form.reset();
-        location.reload();
-    });
-</script>
+<!--<script>-->
+<!--    // var fetch = import( "./fetch.umd.js");-->
+<!--    const scriptURL = 'https://script.google.com/macros/s/AKfycbwLn5_ClOMM5NxS1Dfhcl_LtDziT633FNIBcIhNK8a17vBvvzEm/exec';-->
+<!--    const form = document.forms['form'];-->
+<!--    form.addEventListener('submit', e => {-->
+<!--        if (!('fetch' in window)) {-->
+<!--            console.log('Fetch API not found, try including the polyfill');-->
+<!--            return;-->
+<!--        }-->
+<!--        e.preventDefault();-->
+<!--        fetch(scriptURL, {-->
+<!--            method: 'POST',-->
+<!--            body: new FormData(form) /*headers: {'Content-Type': 'application/json', 'Access-Control-Allow-Origin':'*'}*/,-->
+<!--            mode: 'no-cors'-->
+<!--        })-->
+<!--            .then(response => console.log('Success!', response))-->
+<!--            .catch(error => console.error('Error!', error));-->
+<!--        form.reset();-->
+<!--        location.reload();-->
+<!--    });-->
+<!--</script>-->
 <script src="script.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </body>

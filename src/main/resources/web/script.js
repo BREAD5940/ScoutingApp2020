@@ -142,7 +142,7 @@ function saveShot() {
     document.getElementById("miss").value = 0;
     document.getElementById("time").value = 0;
     document.getElementById("shots").value = currentWord + assembledWord;
-    document.getElementById("img-size").value = "{"+imgWidth+","+imgHeight+"}";
+    document.getElementById("img-size").value = "{" + imgWidth + "," + imgHeight + "}";
     document.getElementById("scoring").style.display = 'none';
 }
 
@@ -224,7 +224,7 @@ var driverSlider = document.getElementById("driver-rank");
 var outputDrive = document.getElementById("display-drive");
 var infoBoxDrive = document.getElementById("info-drive");
 
-var hpSlider  = document.getElementById("player-rank");
+var hpSlider = document.getElementById("player-rank");
 var outputHP = document.getElementById("display-hp");
 var infoBoxHP = document.getElementById("info-hp");
 
@@ -236,7 +236,7 @@ var defAvoidSlider = document.getElementById("defense-avoid-rank");
 var outputDefAvoid = document.getElementById("display-defavoid");
 var infoBoxDefAvoid = document.getElementById("info-defavoid");
 
-function setup(){
+function setup() {
     outputDrive.innerHTML = getName(driverSlider.value);
     infoBoxDrive.innerHTML = getTextDrive(driverSlider.value);
     outputHP.innerHTML = getName(hpSlider.value);
