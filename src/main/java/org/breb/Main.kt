@@ -35,7 +35,7 @@ object Main {
         operator fun List<String>.get(key: String): String {
             this.forEach {
                 if (it.startsWith(key)) {
-                    println(it)
+//                    println(it)
                     val subString = it.substring(key.length + 1, it.length)
                     return unescape(subString)
                 }
@@ -81,7 +81,7 @@ object Main {
         val defAvoidRank = params["defAvoidRank"]
         val notes = params["notes"]
 
-        GlobalScope.launch {
+//        GlobalScope.launch {
             submitToGoogleForms(listOf(
                     imgSize,
                     startTime,
@@ -121,9 +121,9 @@ object Main {
                     defAvoidRank,
                     notes
             ))
-        }
+//        }
 
-        println("started at $startTime")
+//        println("started at $startTime")
 //        ctx.redirect("index.html")
     }
 

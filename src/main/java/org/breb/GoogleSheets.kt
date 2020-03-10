@@ -38,7 +38,7 @@ object GoogleSheets {
     @Throws(IOException::class)
     private fun getCredentials(HTTP_TRANSPORT: NetHttpTransport): Credential? {
         // Load client secrets.
-        val `in`: InputStream = base.lib.SheetsFunctions::class.java.getResourceAsStream(CREDENTIALS_FILE_PATH)
+        val `in`: InputStream = this::class.java.getResourceAsStream(CREDENTIALS_FILE_PATH)
                 ?: throw FileNotFoundException("Resource not found: $CREDENTIALS_FILE_PATH")
         val clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, InputStreamReader(`in`))
 
@@ -80,8 +80,8 @@ object GoogleSheets {
         return getData(spreadsheetID_, tab_, 1, finalCol_)
     }
 
-    val spreadsheetId: String = TODO("yes")
-    val sheetName: String = TODO("yes")
+    val spreadsheetId: String = "1yFNfsq7agRh2C3LYgMBh3P1oFqxZCKahE-y1XRYiQpk" // TODO("yes")
+    val sheetName: String = "CVR" // TODO("yes")
 
     @Suppress("DuplicatedCode")
     fun addData(entries: List<String>) {
@@ -99,6 +99,9 @@ object GoogleSheets {
                 .setValueInputOption("RAW")
                 .setInsertDataOption("INSERT_ROWS")
                 .execute()
+
+        println(result.updates)
+
     }
 
 
